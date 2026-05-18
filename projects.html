@@ -1052,7 +1052,7 @@
        ============================ */
     const COMPANY_PHONE  = "[TOMMY'S PHONE]";
     const CONTACT_URL    = 'https://www.etbuildersinc.com/contact';
-    const MANIFEST_PATH  = '/public/assets/projects/projects-manifest.json';
+    const MANIFEST_PATH  = 'public/assets/projects/projects-manifest.json';
     const MAX_DETAILS    = 20;
 
     /* ============================
@@ -1203,7 +1203,7 @@
        @returns {Promise<Object|null>}
        ============================ */
     async function loadProject(projectId) {
-      const base = `/public/assets/projects/${projectId}`;
+      const base = `public/assets/projects/${projectId}`;
       try {
         const res = await fetch(`${base}/meta.json`);
         if (!res.ok) {
