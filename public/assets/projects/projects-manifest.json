@@ -1,9 +1,8 @@
 {
-  "projects": [
-    "beverly-hills-kitchen-2024",
-    "bel-air-pool-2024",
-    "santa-monica-full-remodel-2023",
-    "malibu-outdoor-2024",
-    "westwood-kitchen-2023"
-  ]
+  "kitchens":       ["beverly-hills-kitchen-2024", "westwood-kitchen-2023"],
+  "pools-outdoors": ["bel-air-pool-2024", "malibu-outdoor-2024"],
+  "full-remodel":   ["santa-monica-full-remodel-2023"],
+  "lighting":       [],
+  "tile":           [],
+  "flooring":       []
 }

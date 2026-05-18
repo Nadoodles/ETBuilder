@@ -4,22 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ============================================================
-       SEO: PAGE TITLE
-       ============================================================ -->
   <title>Featured Projects | Luxury Kitchen &amp; Pool Remodels in Beverly Hills, Bel-Air &amp; LA | ET Builders</title>
 
-  <!-- ============================================================
-       SEO: META TAGS
-       ============================================================ -->
   <meta name="description" content="Explore ET Builders' portfolio of luxury kitchen remodels, custom pools, and full home transformations across Beverly Hills, Bel-Air, Santa Monica, and greater Los Angeles. California Contractor License #899053." />
   <meta name="keywords" content="luxury kitchen remodel Beverly Hills, custom pool construction Los Angeles, full home renovation Bel-Air, high-end contractor LA, Architectural Digest featured contractor" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.etbuildersinc.com/projects" />
 
-  <!-- ============================================================
-       SEO: OPEN GRAPH
-       ============================================================ -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Featured Projects | ET Builders Inc. — Luxury Construction in Beverly Hills &amp; LA" />
   <meta property="og:description" content="Award-winning luxury kitchen remodels, custom pool construction, and full home transformations across Beverly Hills, Bel-Air, Santa Monica, and greater Los Angeles." />
@@ -27,21 +18,10 @@
   <meta property="og:url" content="https://www.etbuildersinc.com/projects" />
   <meta property="og:site_name" content="ET Builders Inc." />
 
-  <!-- ============================================================
-       PERFORMANCE: PRECONNECT
-       ============================================================ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <!-- ============================================================
-       TYPOGRAPHY: JOST (GEOMETRIC SANS-SERIF — FUTURA EQUIVALENT)
-       ============================================================ -->
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- ============================================================
-       SCHEMA.ORG: LOCAL BUSINESS (STATIC)
-       Replace [TOMMY'S PHONE] with the actual phone number.
-       ============================================================ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,45 +29,15 @@
     "name": "ET Builders Inc.",
     "url": "https://www.etbuildersinc.com",
     "telephone": "[TOMMY'S PHONE]",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Los Angeles",
-      "addressRegion": "CA",
-      "addressCountry": "US"
-    },
-    "areaServed": [
-      "Beverly Hills", "Bel-Air", "Santa Monica",
-      "Pasadena", "Malibu", "Pacific Palisades",
-      "Calabasas", "West Hollywood", "Brentwood"
-    ],
+    "address": { "@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US" },
+    "areaServed": ["Beverly Hills","Bel-Air","Santa Monica","Pasadena","Malibu","Pacific Palisades","Calabasas","West Hollywood","Brentwood"],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Luxury Construction Services",
       "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Luxury Kitchen Remodeling",
-            "areaServed": "Beverly Hills, Los Angeles"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Custom Pool Construction",
-            "areaServed": "Bel-Air, Los Angeles"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Full Home Renovation",
-            "areaServed": "Santa Monica, Los Angeles"
-          }
-        }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Luxury Kitchen Remodeling", "areaServed": "Beverly Hills, Los Angeles" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Pool Construction",  "areaServed": "Bel-Air, Los Angeles" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Full Home Renovation",     "areaServed": "Santa Monica, Los Angeles" } }
       ]
     },
     "award": "Featured in Architectural Digest",
@@ -95,632 +45,520 @@
   }
   </script>
 
-  <!-- Per-project ImageGallery schemas are injected dynamically by JavaScript -->
-
   <style>
     /* ===========================
        CUSTOM PROPERTIES
        =========================== */
     :root {
-      --color-bg:           #FFFFFF;
-      --color-text:         #111111;
-      --color-muted:        #767676;
-      --color-accent:       #000000;
-      --color-accent-text:  #FFFFFF;
-      --color-border:       #E5E5E5;
-      --color-overlay:      rgba(0, 0, 0, 0.6);
-      --color-modal-bg:     rgba(0, 0, 0, 0.92);
+      --color-bg:          #FFFFFF;
+      --color-text:        #111111;
+      --color-muted:       #767676;
+      --color-accent:      #000000;
+      --color-accent-text: #FFFFFF;
+      --color-border:      #E5E5E5;
+      --color-modal-bg:    rgba(0,0,0,0.92);
 
-      --font-primary: 'Jost', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      --font: 'Jost', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
 
       --nav-height:      64px;
-      --gap:             16px;
-      --container-max:   1440px;
-      --container-pad:   48px;
-
-      --ease-fast: 0.25s ease;
-      --ease-med:  0.3s ease;
+      --gap:             2px;    /* showroom gap — tight architectural seam */
+      --grid-gap:        16px;   /* masonry gap */
+      --pad:             48px;
+      --max-w:           1440px;
+      --ease:            0.3s ease;
+      --ease-img:        0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     /* ===========================
        RESET & BASE
        =========================== */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background-color: var(--color-bg);
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html  { scroll-behavior: smooth; }
+    body  {
+      background: var(--color-bg);
       color: var(--color-text);
-      font-family: var(--font-primary);
+      font-family: var(--font);
       font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img { display: block; max-width: 100%; }
-
-    button {
-      font-family: var(--font-primary);
-      cursor: pointer;
-      border: none;
-      background: none;
-    }
+    a       { color: inherit; text-decoration: none; }
+    img     { display: block; max-width: 100%; }
+    button  { font-family: var(--font); cursor: pointer; border: none; background: none; }
 
     /* ===========================
        STICKY NAVIGATION
        =========================== */
     #site-nav {
       position: sticky;
-      top: 0;
-      z-index: 100;
+      top: 0; z-index: 100;
       height: var(--nav-height);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 var(--container-pad);
-      background-color: var(--color-bg);
-      transition: border-bottom var(--ease-fast), background-color var(--ease-fast);
+      padding: 0 var(--pad);
+      background: var(--color-bg);
+      transition: border-bottom var(--ease), background var(--ease);
     }
-
     #site-nav.scrolled {
       border-bottom: 1px solid var(--color-border);
-      background-color: rgba(255, 255, 255, 0.95);
+      background: rgba(255,255,255,0.95);
       backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
     }
-
-    .nav-back {
-      font-size: 14px;
-      font-weight: 400;
-      letter-spacing: 0.02em;
-      color: var(--color-text);
-      transition: opacity var(--ease-fast);
-      white-space: nowrap;
-    }
-
+    .nav-back  { font-size: 14px; font-weight: 400; letter-spacing: 0.02em; transition: opacity var(--ease); }
     .nav-back:hover { opacity: 0.55; }
-
-    .nav-title {
-      font-size: 13px;
-      font-weight: 300;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-text);
-    }
-
+    .nav-title { font-size: 13px; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; }
     .nav-cta {
-      display: inline-flex;
-      align-items: center;
+      display: inline-flex; align-items: center;
       padding: 10px 22px;
-      background-color: var(--color-accent);
-      color: var(--color-accent-text);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      background: var(--color-accent); color: var(--color-accent-text);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
       white-space: nowrap;
-      transition: opacity var(--ease-fast);
+      transition: opacity var(--ease);
     }
-
     .nav-cta:hover { opacity: 0.75; }
 
     /* ===========================
-       HERO SECTION
+       VIEW SYSTEM
+       Both views share opacity-based transitions. Only one is active at a time.
        =========================== */
-    #hero {
-      padding: 88px var(--container-pad) 56px;
-      max-width: var(--container-max);
-      margin: 0 auto;
+    .view {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--ease);
+      position: absolute;
+      top: 0; left: 0; right: 0;
+    }
+    .view.active {
+      opacity: 1;
+      pointer-events: all;
+      position: relative;
     }
 
-    #hero h1 {
-      font-size: clamp(30px, 4vw, 54px);
+    /* ===========================
+       SHOWROOM HERO
+       =========================== */
+    #showroom-hero {
+      padding: 64px var(--pad) 40px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    #showroom-hero h1 {
+      font-size: clamp(28px, 3.5vw, 50px);
       font-weight: 300;
       letter-spacing: -0.025em;
       line-height: 1.1;
-      max-width: 820px;
+      max-width: 720px;
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 15px;
+      color: var(--color-muted);
+      max-width: 520px;
+      line-height: 1.75;
       margin-bottom: 24px;
     }
-
-    .hero-sub {
-      font-size: clamp(15px, 1.4vw, 17px);
-      font-weight: 400;
-      color: var(--color-muted);
-      max-width: 580px;
-      line-height: 1.75;
-      margin-bottom: 40px;
-    }
-
-    /* Keyword-dense descriptor paragraph — natural prose, critical for SEO */
     .hero-descriptor {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--color-muted);
-      max-width: 640px;
+      max-width: 600px;
       line-height: 1.8;
-      padding-top: 32px;
+      padding-top: 24px;
       border-top: 1px solid var(--color-border);
-      margin-bottom: 8px;
     }
-
-    .hero-badge {
-      display: inline-flex;
-      gap: 24px;
-      margin-top: 20px;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--color-muted);
-    }
-
-    .hero-badge span::before {
-      content: '·';
-      margin-right: 24px;
-    }
-
-    .hero-badge span:first-child::before { content: none; }
 
     /* ===========================
-       FILTER BAR
+       SHOWROOM GRID (6-BOX)
        =========================== */
-    #filter-section {
-      padding: 0 var(--container-pad) 40px;
-      max-width: var(--container-max);
-      margin: 0 auto;
+    #showroom-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 38vh);
+      gap: var(--gap);
+      margin-top: 40px;
+      min-height: 60vh;
     }
 
-    #filter-bar {
-      display: flex;
-      gap: 0;
-      border-bottom: 1px solid var(--color-border);
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-
-    #filter-bar::-webkit-scrollbar { display: none; }
-
-    .filter-btn {
+    /* ===========================
+       SHOWROOM BOX
+       =========================== */
+    .showroom-box {
       position: relative;
-      padding: 14px 22px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #0d0d0d;
+    }
+
+    /* Architectural grid pattern for empty category boxes */
+    .showroom-box.no-cover {
+      background-color: #0d0d0d;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    .box-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--ease-img);
+      will-change: transform;
+    }
+
+    .showroom-box:hover .box-image { transform: scale(1.06); }
+
+    .box-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(0,0,0,0.08) 0%,
+        rgba(0,0,0,0.62) 100%
+      );
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background var(--ease);
+    }
+
+    .showroom-box:hover .box-overlay {
+      background: linear-gradient(
+        160deg,
+        rgba(0,0,0,0.18) 0%,
+        rgba(0,0,0,0.72) 100%
+      );
+    }
+
+    .box-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .box-count {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .box-coming-soon {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 4px 12px;
+    }
+
+    /* Focus ring for keyboard users */
+    .showroom-box:focus-visible {
+      outline: 2px solid #FFFFFF;
+      outline-offset: -4px;
+      z-index: 1;
+    }
+
+    /* ===========================
+       CATEGORY VIEW HEADER
+       =========================== */
+    #category-view {
+      padding-top: 0;
+    }
+
+    #category-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px var(--pad);
+      border-bottom: 1px solid var(--color-border);
+      max-width: var(--max-w);
+      margin: 0 auto;
+      position: sticky;
+      top: var(--nav-height);
+      background: var(--color-bg);
+      z-index: 10;
+    }
+
+    #back-btn {
       font-size: 13px;
       font-weight: 400;
-      color: var(--color-muted);
       letter-spacing: 0.03em;
-      white-space: nowrap;
-      flex-shrink: 0;
-      transition: color var(--ease-fast);
+      color: var(--color-muted);
+      transition: color var(--ease);
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
+    #back-btn:hover { color: var(--color-text); }
 
-    /* Black underline indicator */
-    .filter-btn::after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background-color: var(--color-accent);
-      opacity: 0;
-      transition: opacity var(--ease-fast);
-    }
-
-    .filter-btn[aria-selected="true"] {
+    #category-title {
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       color: var(--color-text);
-      font-weight: 600;
     }
 
-    .filter-btn[aria-selected="true"]::after { opacity: 1; }
-
-    .filter-btn:hover:not([aria-selected="true"]) { color: var(--color-text); }
+    .category-header-cta {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      transition: color var(--ease);
+    }
+    .category-header-cta:hover { color: var(--color-text); }
 
     /* ===========================
-       PROJECT GALLERY SECTION
+       MASONRY GRID
        =========================== */
-    #gallery {
-      padding: 0 var(--container-pad) 96px;
-      max-width: var(--container-max);
+    #gallery-section {
+      padding: 32px var(--pad) 0;
+      max-width: var(--max-w);
       margin: 0 auto;
     }
 
-    /* Loading / empty state */
-    #gallery-loading {
-      text-align: center;
-      padding: 96px 0;
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-muted);
-    }
-
-    /* ===========================
-       MASONRY GRID (CSS COLUMNS)
-       =========================== */
     #masonry-grid {
       columns: 3;
-      column-gap: var(--gap);
-      transition: opacity var(--ease-med);
+      column-gap: var(--grid-gap);
+      transition: opacity var(--ease);
     }
-
-    /* Fade-out state used during filter transitions */
-    #masonry-grid.filtering { opacity: 0; }
+    #masonry-grid.fading { opacity: 0; }
 
     /* ===========================
        PROJECT CARDS
        =========================== */
     .project-card {
       break-inside: avoid;
-      margin-bottom: var(--gap);
+      margin-bottom: var(--grid-gap);
       position: relative;
       cursor: pointer;
       overflow: hidden;
       content-visibility: auto;
-      contain-intrinsic-size: 0 420px;
-
-      /* Entrance animation — triggered by IntersectionObserver */
+      contain-intrinsic-size: 0 380px;
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(18px);
       will-change: transform, opacity;
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transition: opacity 0.45s ease, transform 0.45s ease;
     }
+    .project-card.visible { opacity: 1; transform: translateY(0); }
 
-    .project-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card-image-wrap {
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-    }
+    .card-image-wrap { aspect-ratio: 4 / 3; overflow: hidden; }
 
     .card-cover {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
       transition: transform 0.6s ease;
       will-change: transform;
     }
-
     .project-card:hover .card-cover { transform: scale(1.04); }
 
-    /* ===========================
-       CARD HOVER OVERLAY
-       =========================== */
+    /* Card hover overlay */
     .card-overlay {
-      position: absolute;
-      inset: 0;
-      background-color: var(--color-overlay);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 24px;
-      opacity: 0;
-      will-change: opacity;
-      transition: opacity var(--ease-med);
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.58);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 20px;
+      opacity: 0; will-change: opacity;
+      transition: opacity var(--ease);
       pointer-events: none;
     }
-
     .project-card:hover .card-overlay { opacity: 1; }
 
-    .card-overlay-title {
-      font-size: 17px;
-      font-weight: 500;
-      color: #FFFFFF;
-      margin-bottom: 4px;
-      letter-spacing: -0.01em;
-    }
-
-    .card-overlay-location {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.72);
-      margin-bottom: 12px;
-    }
-
+    .card-overlay-title   { font-size: 16px; font-weight: 500; color: #FFF; margin-bottom: 3px; }
+    .card-overlay-location{ font-size: 11px; color: rgba(255,255,255,0.7); margin-bottom: 10px; }
     .card-category-tag {
       display: inline-block;
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      padding: 4px 10px;
+      font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 3px 9px;
       align-self: flex-start;
     }
 
-    /* ===========================
-       POV BUTTON (GLASSMORPHISM)
-       =========================== */
-    .pov-btn {
-      position: absolute;
-      bottom: 14px;
-      left: 14px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 14px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      background: rgba(255, 255, 255, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      border-radius: 100px;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #FFFFFF;
-      z-index: 2;
-      pointer-events: all;
-      transition: background var(--ease-fast);
-    }
-
-    .pov-btn:hover { background: rgba(255, 255, 255, 0.35); }
-
-    /* ===========================
-       CARD PLACEHOLDER STATE
-       =========================== */
+    /* Card placeholder */
     .card-placeholder {
-      aspect-ratio: 4 / 3;
-      background-color: #F5F5F5;
+      aspect-ratio: 4/3;
+      background: #F5F5F5;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px;
+    }
+    .card-placeholder-label { font-size: 12px; color: var(--color-muted); text-align: center; padding: 0 20px; }
+
+    /* POV button */
+    .pov-btn {
+      position: absolute; bottom: 12px; left: 12px;
+      display: flex; align-items: center; gap: 5px;
+      padding: 6px 12px;
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.38);
+      border-radius: 100px;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #FFF;
+      z-index: 2;
+      transition: background var(--ease);
+    }
+    .pov-btn:hover { background: rgba(255,255,255,0.32); }
+
+    /* ===========================
+       LOAD MORE SECTION
+       =========================== */
+    #load-more-section {
+      padding: 40px var(--pad) 72px;
+      max-width: var(--max-w);
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 14px;
+      gap: 16px;
     }
 
-    .card-placeholder-label {
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--color-muted);
-      text-align: center;
-      padding: 0 24px;
-      letter-spacing: 0.02em;
+    #load-more-btn {
+      padding: 14px 40px;
+      border: 1px solid var(--color-text);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text);
+      transition: background var(--ease), color var(--ease);
     }
+    #load-more-btn:hover { background: var(--color-text); color: var(--color-accent-text); }
+    #load-more-btn:disabled { opacity: 0.35; cursor: default; }
+    #load-more-btn.hidden { display: none; }
+
+    #load-more-count {
+      font-size: 11px;
+      color: var(--color-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* IntersectionObserver sentinel */
+    #load-sentinel { height: 1px; }
 
     /* ===========================
        PROJECT MODAL
        =========================== */
     #project-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 200;
-      background-color: var(--color-modal-bg);
-      align-items: center;
-      justify-content: center;
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: var(--color-modal-bg);
+      align-items: center; justify-content: center;
       padding: 48px;
-      opacity: 0;
-      will-change: opacity;
-      transition: opacity var(--ease-med);
+      opacity: 0; will-change: opacity;
+      transition: opacity var(--ease);
       overflow-y: auto;
     }
-
-    #project-modal.open   { display: flex; }
+    #project-modal.open    { display: flex; }
     #project-modal.visible { opacity: 1; }
 
     .modal-content {
-      display: flex;
-      width: 100%;
-      max-width: 1160px;
-      max-height: 88vh;
-      background: var(--color-bg);
-      position: relative;
-      flex-shrink: 0;
+      display: flex; width: 100%; max-width: 1160px;
+      max-height: 88vh; background: var(--color-bg);
+      position: relative; flex-shrink: 0;
     }
-
-    /* LEFT PANEL — images */
-    .modal-left {
-      flex: 0 0 60%;
-      display: flex;
-      flex-direction: column;
-      min-height: 0;
-    }
-
-    .modal-main-image-wrap {
-      flex: 1;
-      overflow: hidden;
-      background: #F0F0F0;
-      min-height: 300px;
-    }
-
-    .modal-main-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: opacity var(--ease-fast);
-    }
+    .modal-left  { flex: 0 0 60%; display: flex; flex-direction: column; min-height: 0; }
+    .modal-main-image-wrap { flex: 1; overflow: hidden; background: #F0F0F0; min-height: 300px; }
+    .modal-main-image      { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     .modal-thumb-strip {
-      display: flex;
-      gap: 3px;
-      padding: 3px;
-      background: #111111;
-      overflow-x: auto;
-      scrollbar-width: thin;
-      scrollbar-color: #444 #111;
-      flex-shrink: 0;
+      display: flex; gap: 3px; padding: 3px;
+      background: #111; overflow-x: auto; flex-shrink: 0;
+      scrollbar-width: thin; scrollbar-color: #444 #111;
     }
-
-    .modal-thumb-strip::-webkit-scrollbar { height: 4px; }
-    .modal-thumb-strip::-webkit-scrollbar-track { background: #111; }
-    .modal-thumb-strip::-webkit-scrollbar-thumb { background: #444; }
-
     .modal-thumb {
-      flex-shrink: 0;
-      width: 72px;
-      height: 48px;
-      object-fit: cover;
-      cursor: pointer;
-      opacity: 0.45;
+      flex-shrink: 0; width: 72px; height: 48px; object-fit: cover;
+      cursor: pointer; opacity: 0.45;
       border: 2px solid transparent;
-      transition: opacity var(--ease-fast), border-color var(--ease-fast);
+      transition: opacity var(--ease), border-color var(--ease);
     }
-
     .modal-thumb:hover  { opacity: 0.8; }
-    .modal-thumb.active { opacity: 1; border-color: #FFFFFF; }
+    .modal-thumb.active { opacity: 1; border-color: #FFF; }
 
-    /* RIGHT PANEL — project details */
     .modal-right {
-      flex: 0 0 40%;
-      padding: 48px 40px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
+      flex: 0 0 40%; padding: 48px 40px;
+      overflow-y: auto; display: flex; flex-direction: column;
     }
-
-    .modal-project-title {
-      font-size: 26px;
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-bottom: 28px;
-    }
+    .modal-project-title  { font-size: 24px; font-weight: 300; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 24px; }
 
     .modal-meta-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-bottom: 28px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid var(--color-border);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 18px; margin-bottom: 24px;
+      padding-bottom: 24px; border-bottom: 1px solid var(--color-border);
     }
+    .modal-meta-item { display: flex; flex-direction: column; gap: 4px; }
+    .modal-meta-label { font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-muted); }
+    .modal-meta-value { font-size: 14px; font-weight: 400; }
 
-    .modal-meta-item { display: flex; flex-direction: column; gap: 5px; }
-
-    .modal-meta-label {
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--color-muted);
-    }
-
-    .modal-meta-value {
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--color-text);
-    }
-
-    .modal-description {
-      font-size: 14px;
-      line-height: 1.8;
-      color: var(--color-muted);
-      margin-bottom: 28px;
-      flex: 1;
-    }
-
+    .modal-description  { font-size: 14px; line-height: 1.8; color: var(--color-muted); margin-bottom: 24px; flex: 1; }
     .modal-category-pill {
-      display: inline-block;
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--color-muted);
-      border: 1px solid var(--color-border);
-      padding: 6px 14px;
-      margin-bottom: 28px;
-      align-self: flex-start;
+      display: inline-block; font-size: 9px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--color-muted);
+      border: 1px solid var(--color-border); padding: 5px 12px;
+      margin-bottom: 24px; align-self: flex-start;
     }
-
     .modal-cta-btn {
-      display: block;
-      width: 100%;
-      padding: 16px;
-      background-color: var(--color-accent);
-      color: var(--color-accent-text);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-align: center;
-      margin-bottom: 10px;
-      transition: opacity var(--ease-fast);
+      display: block; width: 100%; padding: 15px;
+      background: var(--color-accent); color: var(--color-accent-text);
+      font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; text-align: center;
+      margin-bottom: 10px; transition: opacity var(--ease);
     }
-
     .modal-cta-btn:hover { opacity: 0.75; }
-
     .modal-share-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 13px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 12px;
       border: 1px solid var(--color-border);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
       color: var(--color-muted);
-      transition: border-color var(--ease-fast), color var(--ease-fast);
+      transition: border-color var(--ease), color var(--ease);
     }
-
     .modal-share-btn:hover { border-color: var(--color-text); color: var(--color-text); }
-
     .modal-share-btn.copied { border-color: var(--color-text); color: var(--color-text); }
 
-    /* Shared close button (top-right of viewport) */
     .modal-close-btn {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 44px;
-      height: 44px;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      font-size: 22px;
-      line-height: 1;
-      color: #FFFFFF;
-      transition: background var(--ease-fast);
-      z-index: 400;
+      position: fixed; top: 20px; right: 20px;
+      width: 44px; height: 44px;
+      display: none; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+      font-size: 22px; line-height: 1; color: #FFF;
+      transition: background var(--ease); z-index: 400;
     }
-
-    .modal-close-btn:hover { background: rgba(255, 255, 255, 0.22); }
+    .modal-close-btn:hover { background: rgba(255,255,255,0.22); }
 
     /* ===========================
-       VIDEO MODAL (POV)
+       VIDEO MODAL
        =========================== */
     #video-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 300;
-      background-color: #000000;
-      align-items: center;
-      justify-content: center;
+      display: none; position: fixed; inset: 0; z-index: 300;
+      background: #000;
+      align-items: center; justify-content: center;
     }
-
     #video-modal.open { display: flex; }
 
     #pov-video {
-      max-width: 100%;
-      max-height: 100vh;
-      display: block;
+      max-width: 100%; max-height: 100vh; display: block;
     }
 
+    #pov-iframe {
+      display: none;
+      width: 100vw; height: 100vh;
+      border: none;
+    }
+    #pov-iframe.active { display: block; }
+
     #video-error {
-      color: #FFFFFF;
-      font-size: 16px;
-      font-weight: 300;
-      letter-spacing: 0.06em;
+      color: #FFF; font-size: 15px; font-weight: 300; letter-spacing: 0.06em;
     }
 
     /* ===========================
@@ -728,285 +566,150 @@
        =========================== */
     #page-footer {
       border-top: 1px solid var(--color-border);
-      padding: 32px var(--container-pad);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: var(--container-max);
-      margin: 0 auto;
+      padding: 32px var(--pad);
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: var(--max-w); margin: 0 auto;
     }
-
-    .footer-license {
-      font-size: 11px;
-      color: var(--color-muted);
-      letter-spacing: 0.04em;
-    }
-
-    .footer-cta {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--color-text);
-      letter-spacing: 0.06em;
-      transition: opacity var(--ease-fast);
-    }
-
+    .footer-license { font-size: 11px; color: var(--color-muted); letter-spacing: 0.03em; }
+    .footer-cta     { font-size: 12px; font-weight: 500; transition: opacity var(--ease); }
     .footer-cta:hover { opacity: 0.5; }
 
     /* ===========================
-       FOCUS STATES (ACCESSIBILITY)
-       Minimum 4.5:1 contrast via black outline on white bg
+       FOCUS STATES
        =========================== */
-    :focus-visible {
-      outline: 2px solid var(--color-accent);
-      outline-offset: 3px;
-    }
+    :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
 
     /* ===========================
        RESPONSIVE — TABLET (≤1023px)
        =========================== */
     @media (max-width: 1023px) {
-      :root {
-        --container-pad: 32px;
-      }
-
-      #masonry-grid { columns: 2; }
-
+      :root { --pad: 32px; }
+      #showroom-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 32vh); }
+      #masonry-grid  { columns: 2; }
       #project-modal { padding: 24px; }
-
-      .modal-content {
-        flex-direction: column;
-        max-height: 92vh;
-      }
-
-      .modal-left { flex: 0 0 auto; }
-
-      .modal-main-image-wrap { min-height: 320px; max-height: 380px; }
-
-      .modal-right { flex: 1; padding: 32px; overflow-y: auto; }
+      .modal-content { flex-direction: column; max-height: 92vh; }
+      .modal-left    { flex: 0 0 auto; }
+      .modal-main-image-wrap { min-height: 300px; max-height: 360px; }
+      .modal-right   { flex: 1; padding: 28px; overflow-y: auto; }
     }
 
     /* ===========================
        RESPONSIVE — MOBILE (≤767px)
        =========================== */
     @media (max-width: 767px) {
-      :root {
-        --container-pad: 20px;
-      }
-
-      /* Hide center title in nav */
+      :root { --pad: 20px; }
       .nav-title { display: none; }
-
-      #masonry-grid { columns: 1; }
-
-      /* 16:9 aspect on mobile */
-      .card-image-wrap { aspect-ratio: 16 / 9; }
-      .card-placeholder { aspect-ratio: 16 / 9; }
-
-      #hero { padding: 48px var(--container-pad) 40px; }
-
-      #project-modal {
-        padding: 0;
-        align-items: flex-end;
-      }
-
-      .modal-content {
-        max-height: 96vh;
-        width: 100%;
-        flex-direction: column;
-        border-radius: 0;
-      }
-
-      .modal-main-image-wrap { min-height: 220px; max-height: 280px; }
-
-      .modal-right { padding: 24px 20px; }
-
-      .modal-meta-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
-
-      #page-footer { flex-direction: column; gap: 16px; text-align: center; }
+      #showroom-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 28vh); gap: 1px; }
+      #masonry-grid  { columns: 1; }
+      .card-image-wrap { aspect-ratio: 16/9; }
+      .card-placeholder{ aspect-ratio: 16/9; }
+      #showroom-hero { padding: 40px var(--pad) 24px; }
+      #project-modal { padding: 0; align-items: flex-end; }
+      .modal-content { max-height: 95vh; width: 100%; flex-direction: column; }
+      .modal-main-image-wrap { min-height: 200px; max-height: 260px; }
+      .modal-right   { padding: 20px; }
+      .modal-meta-grid { grid-template-columns: 1fr 1fr; }
+      #page-footer   { flex-direction: column; gap: 12px; text-align: center; }
+      #category-header { flex-direction: row; padding: 16px var(--pad); }
+      .category-header-cta { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ============================================================
-       STICKY NAVIGATION
-       ============================================================ -->
+  <!-- NAV -->
   <nav id="site-nav" aria-label="Site navigation">
-    <a
-      href="https://www.etbuildersinc.com"
-      class="nav-back"
-      aria-label="Back to ET Builders homepage"
-    >← ET Builders</a>
-
-    <span class="nav-title" aria-hidden="true">Featured Projects</span>
-
-    <a
-      href="https://www.etbuildersinc.com/contact"
-      class="nav-cta"
-      aria-label="Schedule a consultation with ET Builders"
-    >Schedule Consultation</a>
+    <a href="https://www.etbuildersinc.com" class="nav-back" aria-label="Back to ET Builders homepage">← ET Builders</a>
+    <span class="nav-title" aria-hidden="true" id="nav-title-text">Featured Projects</span>
+    <a href="https://www.etbuildersinc.com/contact" class="nav-cta">Schedule Consultation</a>
   </nav>
 
   <main>
 
     <!-- ============================================================
-         HERO SECTION
-         H1 is the primary SEO anchor — contains core target phrases
+         VIEW 1: SHOWROOM (6-BOX INITIAL STATE)
          ============================================================ -->
-    <section id="hero" aria-labelledby="hero-heading">
-      <h1 id="hero-heading">
-        Luxury Home Transformations<br>Across Los Angeles
-      </h1>
+    <section id="showroom-view" class="view active" aria-label="Project Showroom">
 
-      <p class="hero-sub">
-        Award-winning kitchen remodels, custom pools, and full home renovations
-        in Beverly Hills, Bel-Air, Santa Monica, and beyond.
-      </p>
-
-      <!-- Keyword-dense descriptor — natural prose optimized for local SEO -->
-      <p class="hero-descriptor">
-        ET Builders Inc. is a Beverly Hills contractor specializing in luxury kitchen remodels,
-        custom pool construction, and full home transformations throughout greater Los Angeles.
-        Featured in Architectural Digest, each Los Angeles home renovation we deliver reflects
-        our commitment to craftsmanship, precision, and design excellence.
-        California Contractor License&nbsp;#899053.
-      </p>
-
-      <div class="hero-badge" aria-label="Credentials">
-        <span>Featured in Architectural Digest</span>
-        <span>BBB Accredited</span>
-        <span>License #899053</span>
+      <div id="showroom-hero">
+        <h1>Luxury Home Transformations<br>Across Los Angeles</h1>
+        <p class="hero-sub">
+          Award-winning kitchen remodels, custom pools, and full home renovations
+          in Beverly Hills, Bel-Air, Santa Monica, and beyond.
+        </p>
+        <p class="hero-descriptor">
+          ET Builders Inc. is a Beverly Hills contractor specializing in luxury kitchen remodels,
+          custom pool construction, and full home transformations throughout greater Los Angeles.
+          Featured in Architectural Digest. California Contractor License&nbsp;#899053.
+        </p>
       </div>
+
+      <div id="showroom-grid" role="list" aria-label="Project categories">
+        <!-- Showroom boxes injected by JS -->
+      </div>
+
     </section>
 
     <!-- ============================================================
-         FILTER BAR
+         VIEW 2: CATEGORY GRID
          ============================================================ -->
-    <section id="filter-section" aria-label="Filter projects by category">
-      <div
-        id="filter-bar"
-        role="tablist"
-        aria-label="Project category filters"
-      >
-        <button class="filter-btn" role="tab" aria-selected="true"  data-filter="all">All Work</button>
-        <button class="filter-btn" role="tab" aria-selected="false" data-filter="kitchens">Luxury Kitchens</button>
-        <button class="filter-btn" role="tab" aria-selected="false" data-filter="pools-outdoors">Custom Pools &amp; Outdoors</button>
-        <button class="filter-btn" role="tab" aria-selected="false" data-filter="full-remodel">Full Home Transformations</button>
-        <button class="filter-btn" role="tab" aria-selected="false" data-filter="outdoor-living">Outdoor Living</button>
+    <section id="category-view" class="view" aria-label="Category Projects" aria-live="polite">
+
+      <div id="category-header">
+        <button id="back-btn" aria-label="Return to all project categories">
+          ← All Categories
+        </button>
+        <h2 id="category-title"></h2>
+        <a href="https://www.etbuildersinc.com/contact" class="category-header-cta">
+          Start a Project →
+        </a>
       </div>
+
+      <div id="gallery-section">
+        <div id="masonry-grid" role="list" aria-label="Projects"></div>
+      </div>
+
+      <div id="load-more-section" aria-live="polite">
+        <button id="load-more-btn" class="hidden" aria-label="Load more projects">
+          Load More Projects
+        </button>
+        <p id="load-more-count" aria-live="polite"></p>
+        <div id="load-sentinel" aria-hidden="true"></div>
+      </div>
+
     </section>
 
-    <!-- ============================================================
-         PROJECT GALLERY
-         ============================================================ -->
-    <section id="gallery" aria-label="Project Gallery">
-      <div
-        id="gallery-loading"
-        aria-live="polite"
-        aria-busy="true"
-        aria-label="Loading projects"
-      >Loading Projects…</div>
-
-      <div
-        id="masonry-grid"
-        aria-label="Featured projects masonry grid"
-        role="list"
-      >
-        <!-- Project cards are injected here by JavaScript -->
-      </div>
-    </section>
-
-    <!-- ============================================================
-         PAGE FOOTER
-         ============================================================ -->
+    <!-- FOOTER (visible in both views) -->
     <footer id="page-footer" aria-label="Page footer">
-      <p class="footer-license">
-        ET Builders Inc. &nbsp;·&nbsp; California Contractor License #899053 &nbsp;·&nbsp; Los Angeles, CA
-      </p>
-      <a
-        href="https://www.etbuildersinc.com/contact"
-        class="footer-cta"
-        aria-label="Start your construction project with ET Builders"
-      >Start Your Project →</a>
+      <p class="footer-license">ET Builders Inc. &nbsp;·&nbsp; California Contractor License #899053 &nbsp;·&nbsp; Los Angeles, CA</p>
+      <a href="https://www.etbuildersinc.com/contact" class="footer-cta">Start Your Project →</a>
     </footer>
 
   </main>
 
-  <!-- ============================================================
-       PROJECT DETAIL MODAL
-       ============================================================ -->
-  <div
-    id="project-modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="modal-project-title"
-    tabindex="-1"
-  >
+  <!-- PROJECT DETAIL MODAL -->
+  <div id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-project-title" tabindex="-1">
     <div class="modal-content" id="modal-content-inner" role="document">
-
-      <!-- Left panel: main image + thumbnail strip -->
       <div class="modal-left">
         <div class="modal-main-image-wrap">
-          <img
-            id="modal-main-image"
-            class="modal-main-image"
-            src=""
-            alt=""
-            width="720"
-            height="540"
-          />
+          <img id="modal-main-image" class="modal-main-image" src="" alt="" width="720" height="540" />
         </div>
-        <div
-          id="modal-thumb-strip"
-          class="modal-thumb-strip"
-          aria-label="Project photo gallery thumbnails"
-        >
-          <!-- Thumbnails injected by JS -->
-        </div>
+        <div id="modal-thumb-strip" class="modal-thumb-strip" aria-label="Project photos"></div>
       </div>
-
-      <!-- Right panel: project info + CTAs -->
       <div class="modal-right">
         <h2 id="modal-project-title" class="modal-project-title"></h2>
-
         <div class="modal-meta-grid">
-          <div class="modal-meta-item">
-            <span class="modal-meta-label">Location</span>
-            <span id="modal-location" class="modal-meta-value"></span>
-          </div>
-          <div class="modal-meta-item">
-            <span class="modal-meta-label">Completed</span>
-            <span id="modal-year" class="modal-meta-value"></span>
-          </div>
-          <div class="modal-meta-item">
-            <span class="modal-meta-label">Square Footage</span>
-            <span id="modal-sqft" class="modal-meta-value"></span>
-          </div>
-          <div class="modal-meta-item">
-            <span class="modal-meta-label">Category</span>
-            <span id="modal-category" class="modal-meta-value"></span>
-          </div>
+          <div class="modal-meta-item"><span class="modal-meta-label">Location</span><span id="modal-location" class="modal-meta-value"></span></div>
+          <div class="modal-meta-item"><span class="modal-meta-label">Completed</span><span id="modal-year" class="modal-meta-value"></span></div>
+          <div class="modal-meta-item"><span class="modal-meta-label">Square Footage</span><span id="modal-sqft" class="modal-meta-value"></span></div>
+          <div class="modal-meta-item"><span class="modal-meta-label">Category</span><span id="modal-category" class="modal-meta-value"></span></div>
         </div>
-
         <p id="modal-description" class="modal-description"></p>
-
         <span id="modal-category-pill" class="modal-category-pill"></span>
-
-        <a
-          href="https://www.etbuildersinc.com/contact"
-          class="modal-cta-btn"
-          aria-label="Schedule a consultation for a similar luxury renovation project"
-        >Schedule a Consultation</a>
-
-        <button
-          id="modal-share-btn"
-          class="modal-share-btn"
-          aria-label="Copy project link to clipboard"
-        >
+        <a href="https://www.etbuildersinc.com/contact" class="modal-cta-btn">Schedule a Consultation</a>
+        <button id="modal-share-btn" class="modal-share-btn" aria-label="Copy project link">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
-            <polyline points="16 6 12 2 8 6"/>
-            <line x1="12" y1="2" x2="12" y2="15"/>
+            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/>
           </svg>
           Share Project
         </button>
@@ -1014,236 +717,367 @@
     </div>
   </div>
 
-  <!-- ============================================================
-       VIDEO MODAL (POV — fullscreen, no other UI except close)
-       ============================================================ -->
-  <div
-    id="video-modal"
-    aria-label="POV process video player"
-    aria-modal="true"
-    role="dialog"
-    tabindex="-1"
-  >
-    <video
-      id="pov-video"
-      autoplay
-      muted
-      loop
-      playsinline
-      aria-label="POV construction process video"
-    ></video>
+  <!-- VIDEO MODAL -->
+  <div id="video-modal" role="dialog" aria-modal="true" aria-label="POV video" tabindex="-1">
+    <video id="pov-video" muted loop playsinline preload="none" aria-label="POV construction process video"></video>
+    <iframe id="pov-iframe" allowfullscreen allow="autoplay; fullscreen" title="POV process video"></iframe>
     <p id="video-error" style="display:none;" aria-live="polite">Video coming soon</p>
   </div>
 
-  <!-- ============================================================
-       SHARED MODAL CLOSE BUTTON (fixed, top-right)
-       Visible whenever any modal is open
-       ============================================================ -->
-  <button
-    id="modal-close-btn"
-    class="modal-close-btn"
-    aria-label="Close"
-  >&#xd7;</button>
+  <button id="modal-close-btn" class="modal-close-btn" aria-label="Close">&#xd7;</button>
 
   <script>
     /* ============================
        CONSTANTS
-       Replace [TOMMY'S PHONE] with the actual number before launch.
        ============================ */
-    const COMPANY_PHONE  = "[TOMMY'S PHONE]";
-    const CONTACT_URL    = 'https://www.etbuildersinc.com/contact';
-    const MANIFEST_PATH  = 'public/assets/projects/projects-manifest.json';
-    const MAX_DETAILS    = 20;
+    const PAGE_SIZE    = 12;
+    const CONTACT_URL  = 'https://www.etbuildersinc.com/contact';
+    const MANIFEST_URL = 'public/assets/projects/projects-manifest.json';
+
+    /* ============================
+       CLOUDINARY CONFIG
+       Set enabled:true + cloudName after creating a Cloudinary account.
+       All thumbnails will be auto-compressed, cropped, and served as WebP/AVIF.
+       Full-resolution originals are only fetched when the modal opens.
+       ============================ */
+    const CLOUDINARY = {
+      enabled:   false,
+      cloudName: 'your-cloud-name',
+      thumb:     'w_600,f_auto,q_auto:good,c_fill,ar_4:3',
+      full:      'w_1600,f_auto,q_auto:best',
+    };
+
+    /* ============================
+       SHOWROOM CATEGORY CONFIG
+       Defines the 6 boxes: display label, manifest key, and cover image path.
+       For categories without real assets yet, set cover: null.
+       ============================ */
+    const SHOWROOM = [
+      { id: 'kitchens',       label: 'Luxury Kitchens',           cover: 'public/assets/projects/beverly-hills-kitchen-2024/cover.webp' },
+      { id: 'pools-outdoors', label: 'Custom Pools & Outdoors',   cover: 'public/assets/projects/bel-air-pool-2024/cover.webp' },
+      { id: 'full-remodel',   label: 'Full Home Transformations', cover: 'public/assets/projects/santa-monica-full-remodel-2023/cover.webp' },
+      { id: 'lighting',       label: 'Architectural Lighting',    cover: null },
+      { id: 'tile',           label: 'Premium Tile & Masonry',    cover: null },
+      { id: 'flooring',       label: 'Bespoke Flooring',          cover: null },
+    ];
 
     /* ============================
        STATE
        ============================ */
-    let allProjects       = [];
-    let currentProject    = null;
-    let currentImageIndex = 0;
-    let activeFilter      = 'all';
-    let scrollTicking     = false;
-    let cardObserver      = null;
-
-    /* ============================
-       FILTER CATEGORY MAP
-       Maps filter button data-filter values to category matching predicates.
-       ============================ */
-    const FILTER_MAP = {
-      'all':           ()  => true,
-      'kitchens':      p   => p.category === 'Kitchen',
-      'pools-outdoors':p   => p.category === 'Pool' || p.category === 'Outdoor',
-      'full-remodel':  p   => p.category === 'Full Remodel',
-      'outdoor-living':p   => p.category === 'Outdoor'
+    const state = {
+      view:         'showroom',  // 'showroom' | 'category'
+      categoryId:   null,
+      categoryIds:  [],          // all project IDs in active category
+      loadedCount:  0,
+      projectCache: {},          // projectId → project object (avoids re-fetching)
+      manifest:     null,        // cached manifest object
+      loading:      false,
     };
 
     /* ============================
-       UTILITY: PLACEHOLDER SVG
-       Generates a lightweight SVG data URI for projects missing cover.webp.
-       @param {string} title - Project display name.
-       @returns {string} data: URI.
+       CLOUDINARY: THUMBNAIL URL
+       Injects Cloudinary transform params for lightweight grid thumbnails.
+       Falls through unchanged when Cloudinary is disabled.
+       @param {string} rawUrl - Original asset URL or path.
+       @returns {string}
        ============================ */
-    function createPlaceholderSVG(title) {
-      const escaped = title
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
+    function getThumbUrl(rawUrl) {
+      if (!rawUrl || !CLOUDINARY.enabled) return rawUrl;
+      if (rawUrl.includes('res.cloudinary.com')) {
+        return rawUrl.replace('/upload/', `/upload/${CLOUDINARY.thumb}/`);
+      }
+      const encoded = encodeURIComponent(
+        rawUrl.startsWith('http') ? rawUrl : `${location.origin}/${rawUrl}`
+      );
+      return `https://res.cloudinary.com/${CLOUDINARY.cloudName}/image/fetch/${CLOUDINARY.thumb}/${encoded}`;
+    }
 
+    /* ============================
+       CLOUDINARY: FULL-RES URL
+       Fetches the high-quality original only when the modal opens.
+       @param {string} rawUrl
+       @returns {string}
+       ============================ */
+    function getFullUrl(rawUrl) {
+      if (!rawUrl || !CLOUDINARY.enabled) return rawUrl;
+      if (rawUrl.includes('res.cloudinary.com')) {
+        return rawUrl.replace('/upload/', `/upload/${CLOUDINARY.full}/`);
+      }
+      const encoded = encodeURIComponent(
+        rawUrl.startsWith('http') ? rawUrl : `${location.origin}/${rawUrl}`
+      );
+      return `https://res.cloudinary.com/${CLOUDINARY.cloudName}/image/fetch/${CLOUDINARY.full}/${encoded}`;
+    }
+
+    /* ============================
+       VIDEO: DETECT TYPE
+       Returns 'youtube' | 'vimeo' | 'local' | null.
+       Used to decide between <video> element and <iframe> embed.
+       @param {string|null} src
+       @returns {string|null}
+       ============================ */
+    function getVideoType(src) {
+      if (!src) return null;
+      if (/youtube\.com\/|youtu\.be\//.test(src)) return 'youtube';
+      if (/vimeo\.com\//.test(src))               return 'vimeo';
+      return 'local';
+    }
+
+    /* ============================
+       VIDEO: BUILD EMBED URL
+       Converts a YouTube/Vimeo watch URL to an embeddable iframe src
+       with autoplay, muted, and loop flags set appropriately.
+       @param {string} src
+       @param {'youtube'|'vimeo'} type
+       @returns {string|null}
+       ============================ */
+    function buildEmbedUrl(src, type) {
+      if (type === 'youtube') {
+        const id = src.match(/(?:v=|youtu\.be\/)([^&?/]+)/)?.[1];
+        if (!id) return null;
+        return `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${id}&controls=0`;
+      }
+      if (type === 'vimeo') {
+        const id = src.match(/vimeo\.com\/(\d+)/)?.[1];
+        if (!id) return null;
+        return `https://player.vimeo.com/video/${id}?autoplay=1&muted=1&loop=1&background=1`;
+      }
+      return null;
+    }
+
+    /* ============================
+       UTILITY: SVG PLACEHOLDER
+       @param {string} title
+       @returns {string} data URI
+       ============================ */
+    function placeholderSVG(title) {
+      const safe = title.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
       const svg = [
         '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">',
           '<rect width="800" height="600" fill="#F5F5F5"/>',
           '<line x1="40" y1="40" x2="760" y2="560" stroke="#E0E0E0" stroke-width="0.5"/>',
           '<line x1="760" y1="40" x2="40" y2="560" stroke="#E0E0E0" stroke-width="0.5"/>',
-          '<text x="400" y="278" font-family="system-ui,sans-serif" font-size="11" fill="#BBBBBB"',
-            ' text-anchor="middle" letter-spacing="4" font-weight="500">ET BUILDERS INC.</text>',
-          '<text x="400" y="313" font-family="system-ui,sans-serif" font-size="17" fill="#888888"',
-            ' text-anchor="middle" font-weight="300">' + escaped + '</text>',
-          '<text x="400" y="342" font-family="system-ui,sans-serif" font-size="10" fill="#BBBBBB"',
-            ' text-anchor="middle" letter-spacing="3">PHOTO COMING SOON</text>',
+          '<text x="400" y="282" font-family="system-ui" font-size="11" fill="#BBBBBB" text-anchor="middle" letter-spacing="4">ET BUILDERS INC.</text>',
+          '<text x="400" y="316" font-family="system-ui" font-size="16" fill="#888" text-anchor="middle" font-weight="300">'+safe+'</text>',
+          '<text x="400" y="344" font-family="system-ui" font-size="10" fill="#BBBBBB" text-anchor="middle" letter-spacing="3">PHOTO COMING SOON</text>',
         '</svg>'
       ].join('');
-
       return 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svg)));
     }
 
     /* ============================
-       UTILITY: IMAGE EXISTS
-       Probes a URL by attempting to load it as an Image object.
-       @param {string} src
-       @returns {Promise<boolean>}
-       ============================ */
-    function imageExists(src) {
-      return new Promise(resolve => {
-        const img = new Image();
-        img.onload  = () => resolve(true);
-        img.onerror = () => resolve(false);
-        img.src = src;
-      });
-    }
-
-    /* ============================
-       UTILITY: VIDEO EXISTS
-       Uses a HEAD fetch to check video file accessibility without downloading it.
-       @param {string} src
-       @returns {Promise<boolean>}
-       ============================ */
-    async function videoExists(src) {
-      try {
-        const res = await fetch(src, { method: 'HEAD' });
-        return res.ok;
-      } catch {
-        return false;
-      }
-    }
-
-    /* ============================
-       UTILITY: PROBE DETAIL IMAGES
-       Sequentially checks for 01.webp, 02.webp… up to MAX_DETAILS.
-       Stops at the first missing file to avoid unnecessary requests.
-       @param {string} projectId
-       @returns {Promise<string[]>} Array of accessible image URLs.
-       ============================ */
-    async function probeDetailImages(projectId) {
-      const found = [];
-      for (let i = 1; i <= MAX_DETAILS; i++) {
-        const pad = String(i).padStart(2, '0');
-        const src = `/public/assets/projects/${projectId}/details/${pad}.webp`;
-        const ok  = await imageExists(src);
-        if (!ok) break;
-        found.push(src);
-      }
-      return found;
-    }
-
-    /* ============================
-       DATA: LOAD MANIFEST
-       Fetches projects-manifest.json, then loads each project in parallel.
-       Handles missing manifest gracefully with a user-visible message.
+       DATA: LOAD MANIFEST (CACHED)
+       @returns {Promise<Object>} Categorized manifest { kitchens: [...], ... }
        ============================ */
     async function loadManifest() {
-      const loadingEl = document.getElementById('gallery-loading');
-      try {
-        const res = await fetch(MANIFEST_PATH);
-        if (!res.ok) throw new Error('Manifest not found (' + res.status + ')');
-
-        const data = await res.json();
-        const ids  = Array.isArray(data) ? data : (data.projects || []);
-
-        const settled = await Promise.allSettled(ids.map(id => loadProject(id)));
-
-        allProjects = settled
-          .filter(r => r.status === 'fulfilled' && r.value !== null)
-          .map(r => r.value);
-
-        loadingEl.style.display = 'none';
-        loadingEl.setAttribute('aria-busy', 'false');
-
-        if (allProjects.length === 0) {
-          loadingEl.textContent = 'No projects found.';
-          loadingEl.style.display = 'block';
-          return;
-        }
-
-        renderProjects(allProjects);
-        allProjects.forEach(injectProjectSchema);
-
-      } catch (err) {
-        console.error('[ET Builders] Could not load projects manifest:', err);
-        loadingEl.textContent = 'Projects could not be loaded.';
-        loadingEl.setAttribute('aria-busy', 'false');
-      }
+      if (state.manifest) return state.manifest;
+      const res = await fetch(MANIFEST_URL);
+      if (!res.ok) throw new Error('Manifest ' + res.status);
+      state.manifest = await res.json();
+      return state.manifest;
     }
 
     /* ============================
-       DATA: LOAD SINGLE PROJECT
-       Fetches meta.json for one project and probes for its assets.
-       Returns null (and logs a warning) if meta.json is missing.
-       @param {string} projectId
+       DATA: LOAD PROJECT
+       Fetches a single project's meta.json. Results are cached in state.projectCache
+       so navigating back and re-entering a category doesn't re-fetch anything.
+       @param {string} id
        @returns {Promise<Object|null>}
        ============================ */
-    async function loadProject(projectId) {
-      const base = `public/assets/projects/${projectId}`;
+    async function loadProject(id) {
+      if (state.projectCache[id]) return state.projectCache[id];
+      const base = `public/assets/projects/${id}`;
       try {
         const res = await fetch(`${base}/meta.json`);
-        if (!res.ok) {
-          console.warn('[ET Builders] Skipping "' + projectId + '" — meta.json missing (' + res.status + ')');
-          return null;
-        }
+        if (!res.ok) { console.warn('[ET Builders] Skipping "' + id + '" ('+res.status+')'); return null; }
         const meta = await res.json();
-
-        const coverSrc = `${base}/cover.webp`;
-        const videoSrc = `${base}/pov-process.mp4`;
-
-        const [coverOk, videoOk, details] = await Promise.all([
-          imageExists(coverSrc),
-          videoExists(videoSrc),
-          probeDetailImages(projectId)
-        ]);
-
-        const allImages = [
-          coverOk ? coverSrc : null,
-          ...details
-        ].filter(Boolean);
-
-        return {
-          id: projectId,
-          ...meta,
-          coverSrc:   coverOk ? coverSrc : null,
-          videoSrc:   videoOk ? videoSrc : null,
-          detailImages: details,
-          allImages
+        const coverRaw   = `${base}/cover.webp`;
+        const detailRaws = Array.isArray(meta.detailImages)
+          ? meta.detailImages.map(f => `${base}/details/${f}`)
+          : [];
+        const project = {
+          id, ...meta,
+          coverRaw,
+          coverThumb: getThumbUrl(coverRaw),
+          videoSrc:   meta.hasVideo ? `${base}/pov-process.mp4` : (meta.videoUrl || null),
+          detailRaws,
+          allImagesRaw:   [coverRaw, ...detailRaws],
+          allImagesThumb: [getThumbUrl(coverRaw), ...detailRaws.map(getThumbUrl)],
         };
-      } catch (err) {
-        console.warn('[ET Builders] Skipping "' + projectId + '":', err);
+        state.projectCache[id] = project;
+        return project;
+      } catch (e) {
+        console.warn('[ET Builders] Error loading "' + id + '":', e);
         return null;
       }
     }
 
     /* ============================
+       DOM: RENDER SHOWROOM
+       Builds the 6 category boxes and inserts them into #showroom-grid.
+       ============================ */
+    function renderShowroom() {
+      const grid = document.getElementById('showroom-grid');
+      grid.innerHTML = '';
+      SHOWROOM.forEach(cat => grid.appendChild(createShowroomBox(cat)));
+    }
+
+    /* ============================
+       DOM: CREATE SHOWROOM BOX
+       @param {{ id, label, cover }} cat
+       @returns {HTMLElement}
+       ============================ */
+    function createShowroomBox(cat) {
+      const box = document.createElement('div');
+      box.className  = 'showroom-box' + (cat.cover ? '' : ' no-cover');
+      box.setAttribute('role', 'listitem');
+      box.setAttribute('tabindex', '0');
+      box.setAttribute('aria-label', cat.label + ' — view projects');
+      box.dataset.category = cat.id;
+
+      if (cat.cover) {
+        const img = document.createElement('img');
+        img.className = 'box-image';
+        img.src       = getThumbUrl(cat.cover);
+        img.alt       = cat.label + ' project by ET Builders';
+        img.loading   = 'lazy';
+        img.onerror   = () => { img.remove(); box.classList.add('no-cover'); };
+        box.appendChild(img);
+      }
+
+      const manifest   = state.manifest || {};
+      const ids        = manifest[cat.id] || [];
+      const countText  = ids.length > 0 ? ids.length + ' project' + (ids.length !== 1 ? 's' : '') : null;
+
+      const overlay = document.createElement('div');
+      overlay.className = 'box-overlay';
+      overlay.innerHTML =
+        '<span class="box-label">' + cat.label + '</span>' +
+        (countText
+          ? '<span class="box-count">' + countText + '</span>'
+          : '<span class="box-coming-soon">Coming Soon</span>');
+      box.appendChild(overlay);
+
+      const open = () => {
+        if (!ids.length) return; // no projects yet — nothing to show
+        enterCategory(cat.id, cat.label, ids);
+      };
+
+      box.addEventListener('click',   open);
+      box.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+      return box;
+    }
+
+    /* ============================
+       VIEW: ENTER CATEGORY
+       Transitions from the 6-box showroom into the paginated project grid.
+       @param {string} catId
+       @param {string} catLabel
+       @param {string[]} ids  - All project IDs in this category
+       ============================ */
+    async function enterCategory(catId, catLabel, ids) {
+      state.categoryId  = catId;
+      state.categoryIds = ids;
+      state.loadedCount = 0;
+
+      document.getElementById('category-title').textContent = catLabel;
+      document.getElementById('masonry-grid').innerHTML = '';
+      document.getElementById('load-more-count').textContent = '';
+      document.getElementById('load-more-btn').classList.add('hidden');
+
+      switchView('category-view');
+
+      await loadNextBatch();
+    }
+
+    /* ============================
+       VIEW: EXIT TO SHOWROOM
+       ============================ */
+    function exitToShowroom() {
+      switchView('showroom-view');
+      // Re-render showroom boxes so counts update if manifest just loaded
+      renderShowroom();
+    }
+
+    /* ============================
+       VIEW: SWITCH
+       Fades out the current view and fades in the target view.
+       @param {'showroom-view'|'category-view'} targetId
+       ============================ */
+    function switchView(targetId) {
+      const current = document.querySelector('.view.active');
+      const target  = document.getElementById(targetId);
+      if (!current || current === target) return;
+
+      current.style.transition = 'opacity 0.25s ease';
+      current.style.opacity = '0';
+
+      setTimeout(() => {
+        current.classList.remove('active');
+        current.style.opacity = '';
+        current.style.transition = '';
+
+        target.classList.add('active');
+        target.style.opacity = '0';
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          target.style.transition = 'opacity 0.3s ease';
+          target.style.opacity = '1';
+          setTimeout(() => { target.style.transition = ''; target.style.opacity = ''; }, 320);
+        }));
+
+        state.view = targetId === 'showroom-view' ? 'showroom' : 'category';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 260);
+    }
+
+    /* ============================
+       PAGINATION: LOAD NEXT BATCH
+       Fetches the next PAGE_SIZE projects from the active category,
+       appends their cards to the grid, and updates the Load More button.
+       ============================ */
+    async function loadNextBatch() {
+      if (state.loading) return;
+      state.loading = true;
+
+      const btn   = document.getElementById('load-more-btn');
+      const count = document.getElementById('load-more-count');
+      btn.disabled = true;
+
+      const slice = state.categoryIds.slice(state.loadedCount, state.loadedCount + PAGE_SIZE);
+      if (!slice.length) { state.loading = false; return; }
+
+      const results = await Promise.allSettled(slice.map(loadProject));
+      const projects = results
+        .filter(r => r.status === 'fulfilled' && r.value)
+        .map(r => r.value);
+
+      const grid = document.getElementById('masonry-grid');
+      projects.forEach((p, i) => {
+        const card = createProjectCard(p);
+        card.dataset.animIndex = state.loadedCount + i;
+        grid.appendChild(card);
+        cardObserver.observe(card);
+        injectProjectSchema(p);
+      });
+
+      state.loadedCount += slice.length;
+      state.loading = false;
+
+      const remaining = state.categoryIds.length - state.loadedCount;
+      if (remaining > 0) {
+        btn.textContent = 'Load More Projects (' + remaining + ' remaining)';
+        btn.classList.remove('hidden');
+        btn.disabled = false;
+        count.textContent = 'Showing ' + state.loadedCount + ' of ' + state.categoryIds.length;
+      } else {
+        btn.classList.add('hidden');
+        count.textContent = state.loadedCount + ' project' + (state.loadedCount !== 1 ? 's' : '') + ' in this category';
+      }
+    }
+
+    /* ============================
        DOM: CREATE PROJECT CARD
-       Builds an <article> element for one project, including cover image
-       (or SVG placeholder), hover overlay, and optional POV button.
+       Thumbnails use Cloudinary-transformed URLs. Full-res loaded only in modal.
        @param {Object} project
        @returns {HTMLElement}
        ============================ */
@@ -1251,232 +1085,165 @@
       const article = document.createElement('article');
       article.className = 'project-card';
       article.setAttribute('data-project-id', project.id);
-      article.setAttribute('data-category', project.category);
       article.setAttribute('tabindex', '0');
       article.setAttribute('role', 'listitem');
-      article.setAttribute('aria-label',
-        'View ' + project.title + ' — ' + project.category + ' in ' + project.location
-      );
+      article.setAttribute('aria-label', 'View ' + project.title + ' — ' + project.category + ' in ' + project.location);
 
-      const altText = project.title + ' - ' + project.category + ' in ' + project.location + ' by ET Builders';
+      const alt = project.title + ' - ' + project.category + ' in ' + project.location + ' by ET Builders';
 
-      /* Cover image or SVG placeholder */
-      const imageWrap = document.createElement('div');
-      imageWrap.className = 'card-image-wrap';
+      const wrap = document.createElement('div');
+      wrap.className = 'card-image-wrap';
 
-      if (project.coverSrc) {
-        const img = document.createElement('img');
-        img.className = 'card-cover';
-        img.src       = project.coverSrc;
-        img.alt       = altText;
-        img.loading   = 'lazy';
-        img.width     = 800;
-        img.height    = 600;
-        img.onerror   = () => { img.src = createPlaceholderSVG(project.title); };
-        imageWrap.appendChild(img);
-      } else {
-        const placeholder = document.createElement('div');
-        placeholder.className = 'card-placeholder';
-        placeholder.setAttribute('aria-label', altText);
-        placeholder.innerHTML =
-          '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#BBBBBB" stroke-width="1.5" aria-hidden="true">' +
-            '<rect x="3" y="3" width="18" height="18"/>' +
-            '<circle cx="8.5" cy="8.5" r="1.5"/>' +
-            '<polyline points="21 15 16 10 5 21"/>' +
-          '</svg>' +
-          '<span class="card-placeholder-label">' + project.title + '</span>';
-        imageWrap.appendChild(placeholder);
-      }
-      article.appendChild(imageWrap);
+      const img = document.createElement('img');
+      img.className = 'card-cover';
+      img.src       = project.coverThumb; // lightweight Cloudinary thumbnail (or raw if CDN disabled)
+      img.alt       = alt;
+      img.loading   = 'lazy';
+      img.width     = 800; img.height = 600;
+      img.onerror   = () => {
+        wrap.className = 'card-placeholder';
+        wrap.innerHTML = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BBB" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span class="card-placeholder-label">'+project.title+'</span>';
+      };
+      wrap.appendChild(img);
+      article.appendChild(wrap);
 
-      /* Hover overlay */
       const overlay = document.createElement('div');
       overlay.className = 'card-overlay';
       overlay.setAttribute('aria-hidden', 'true');
       overlay.innerHTML =
-        '<span class="card-overlay-title">' + project.title + '</span>' +
+        '<span class="card-overlay-title">'    + project.title    + '</span>' +
         '<span class="card-overlay-location">' + project.location + ' · ' + project.completionYear + '</span>' +
-        '<span class="card-category-tag">' + project.category + '</span>';
+        '<span class="card-category-tag">'     + project.category + '</span>';
       article.appendChild(overlay);
 
-      /* POV button — only rendered when video asset exists */
       if (project.videoSrc) {
-        const povBtn = document.createElement('button');
-        povBtn.className = 'pov-btn';
-        povBtn.setAttribute('aria-label', 'Watch POV process video for ' + project.title);
-        povBtn.textContent = '▶ POV';
-        povBtn.addEventListener('click', e => {
-          e.stopPropagation();
-          openVideoModal(project);
-        });
-        article.appendChild(povBtn);
+        const pov = document.createElement('button');
+        pov.className = 'pov-btn';
+        pov.setAttribute('aria-label', 'Watch POV video for ' + project.title);
+        pov.textContent = '▶ POV';
+        pov.addEventListener('click', e => { e.stopPropagation(); openVideoModal(project); });
+        article.appendChild(pov);
       }
 
-      /* Open project modal on card click or Enter/Space */
-      article.addEventListener('click', () => openProjectModal(project));
-      article.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          openProjectModal(project);
-        }
-      });
-
+      article.addEventListener('click',   ()  => openProjectModal(project));
+      article.addEventListener('keydown', e   => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openProjectModal(project); } });
       return article;
     }
 
     /* ============================
-       DOM: RENDER PROJECTS TO GRID
-       Replaces all grid content with fresh cards for the given project array.
-       @param {Object[]} projects
-       ============================ */
-    function renderProjects(projects) {
-      const grid = document.getElementById('masonry-grid');
-      grid.innerHTML = '';
-
-      const fragment = document.createDocumentFragment();
-      projects.forEach(p => fragment.appendChild(createProjectCard(p)));
-      grid.appendChild(fragment);
-
-      setupCardAnimations();
-    }
-
-    /* ============================
-       FILTER: APPLY
-       Fades the grid out, rebuilds it with filtered projects, then fades in.
-       Uses opacity only — no width/height/margin animation to avoid reflow.
-       @param {string} filterId
-       ============================ */
-    function applyFilter(filterId) {
-      if (filterId === activeFilter) return;
-      activeFilter = filterId;
-
-      const grid     = document.getElementById('masonry-grid');
-      const filterFn = FILTER_MAP[filterId] || FILTER_MAP['all'];
-      const filtered = allProjects.filter(filterFn);
-
-      grid.classList.add('filtering');
-
-      setTimeout(() => {
-        renderProjects(filtered);
-        grid.classList.remove('filtering');
-      }, 250);
-    }
-
-    /* ============================
        MODAL: OPEN PROJECT DETAIL
-       Populates all modal fields and shows the overlay.
-       @param {Object} project
+       Full-resolution images are loaded here via getFullUrl().
        ============================ */
+    let currentProject    = null;
+    let currentImageIndex = 0;
+
     function openProjectModal(project) {
       currentProject    = project;
       currentImageIndex = 0;
 
-      const modal    = document.getElementById('project-modal');
-      const closeBtn = document.getElementById('modal-close-btn');
+      document.getElementById('modal-project-title').textContent = project.title;
+      document.getElementById('modal-location').textContent      = project.location;
+      document.getElementById('modal-year').textContent          = project.completionYear;
+      document.getElementById('modal-sqft').textContent          = project.squareFootage ? project.squareFootage + ' sq ft' : '—';
+      document.getElementById('modal-category').textContent      = project.category;
+      document.getElementById('modal-description').textContent   = project.description;
+      document.getElementById('modal-category-pill').textContent = project.category;
 
-      /* Populate text */
-      document.getElementById('modal-project-title').textContent  = project.title;
-      document.getElementById('modal-location').textContent        = project.location;
-      document.getElementById('modal-year').textContent            = project.completionYear;
-      document.getElementById('modal-sqft').textContent            =
-        project.squareFootage ? project.squareFootage + ' sq ft' : '—';
-      document.getElementById('modal-category').textContent        = project.category;
-      document.getElementById('modal-description').textContent     = project.description;
-      document.getElementById('modal-category-pill').textContent   = project.category;
-
-      /* Set main image */
       const mainImg = document.getElementById('modal-main-image');
-      const first   = project.allImages[0] || null;
-      if (first) {
-        mainImg.src = first;
-        mainImg.alt = project.title + ' - ' + project.category + ' in ' + project.location + ' by ET Builders';
-        mainImg.style.display = 'block';
-      } else {
-        mainImg.src = createPlaceholderSVG(project.title);
-        mainImg.alt = project.title + ' — image coming soon';
-      }
+      const firstFull = getFullUrl(project.allImagesRaw[0]);
+      mainImg.src     = firstFull || placeholderSVG(project.title);
+      mainImg.alt     = project.title + ' - ' + project.category + ' in ' + project.location + ' by ET Builders';
+      mainImg.onerror = () => { mainImg.src = placeholderSVG(project.title); mainImg.onerror = null; };
 
-      /* Build thumbnail strip */
       const strip = document.getElementById('modal-thumb-strip');
       strip.innerHTML = '';
-
-      if (project.allImages.length > 1) {
-        project.allImages.forEach((src, idx) => {
-          const thumb = document.createElement('img');
-          thumb.src       = src;
-          thumb.className = 'modal-thumb' + (idx === 0 ? ' active' : '');
-          thumb.alt       = project.title + ' photo ' + (idx + 1);
-          thumb.loading   = 'lazy';
-          thumb.width     = 72;
-          thumb.height    = 48;
-          thumb.setAttribute('tabindex', '0');
-          thumb.addEventListener('click', () => navigateToImage(idx));
-          thumb.addEventListener('keydown', e => {
-            if (e.key === 'Enter') navigateToImage(idx);
-          });
-          strip.appendChild(thumb);
+      if (project.allImagesRaw.length > 1) {
+        project.allImagesRaw.forEach((raw, idx) => {
+          const t = document.createElement('img');
+          t.src       = getThumbUrl(raw);  // thumbnails in strip = lightweight
+          t.className = 'modal-thumb' + (idx === 0 ? ' active' : '');
+          t.alt       = project.title + ' photo ' + (idx + 1);
+          t.loading   = 'lazy';
+          t.width = 72; t.height = 48;
+          t.setAttribute('tabindex', '0');
+          t.addEventListener('click',   ()  => navigateToImage(idx));
+          t.addEventListener('keydown', e   => { if (e.key === 'Enter') navigateToImage(idx); });
+          strip.appendChild(t);
         });
         strip.style.display = 'flex';
       } else {
         strip.style.display = 'none';
       }
 
-      /* Show modal with fade */
+      const modal    = document.getElementById('project-modal');
+      const closeBtn = document.getElementById('modal-close-btn');
       modal.classList.add('open');
       closeBtn.style.display = 'flex';
       document.body.style.overflow = 'hidden';
-
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          modal.classList.add('visible');
-        });
-      });
-
+      requestAnimationFrame(() => requestAnimationFrame(() => modal.classList.add('visible')));
       modal.focus();
     }
 
     /* ============================
        MODAL: NAVIGATE IMAGES
-       Updates the main image and thumbnail strip active state.
+       Full-res URL fetched only when image is viewed.
        @param {number} index
        ============================ */
     function navigateToImage(index) {
-      if (!currentProject || !currentProject.allImages.length) return;
-
-      currentImageIndex = Math.max(0, Math.min(index, currentProject.allImages.length - 1));
+      if (!currentProject) return;
+      currentImageIndex = Math.max(0, Math.min(index, currentProject.allImagesRaw.length - 1));
 
       const mainImg = document.getElementById('modal-main-image');
-      mainImg.src = currentProject.allImages[currentImageIndex];
+      mainImg.src   = getFullUrl(currentProject.allImagesRaw[currentImageIndex]);
+      mainImg.onerror = () => { mainImg.src = placeholderSVG(currentProject.title); mainImg.onerror = null; };
 
-      const thumbs = document.querySelectorAll('.modal-thumb');
-      thumbs.forEach((t, i) => t.classList.toggle('active', i === currentImageIndex));
-      if (thumbs[currentImageIndex]) {
-        thumbs[currentImageIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-      }
+      document.querySelectorAll('.modal-thumb').forEach((t, i) => t.classList.toggle('active', i === currentImageIndex));
+      const activeThumb = document.querySelectorAll('.modal-thumb')[currentImageIndex];
+      if (activeThumb) activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
 
     /* ============================
        MODAL: OPEN POV VIDEO
-       Starts fullscreen video playback. Shows an error message if src fails.
+       Detects Vimeo/YouTube embeds vs local files.
+       Local files default to muted, playsinline, preload="none".
+       External embeds are loaded in a sandboxed iframe.
        @param {Object} project
        ============================ */
     function openVideoModal(project) {
-      const videoModal = document.getElementById('video-modal');
       const videoEl    = document.getElementById('pov-video');
+      const iframeEl   = document.getElementById('pov-iframe');
       const errorEl    = document.getElementById('video-error');
       const closeBtn   = document.getElementById('modal-close-btn');
+      const videoModal = document.getElementById('video-modal');
 
-      if (project.videoSrc) {
-        videoEl.src = project.videoSrc;
+      // Reset state
+      videoEl.src  = ''; videoEl.style.display  = 'none'; videoEl.classList.remove('active');
+      iframeEl.src = ''; iframeEl.style.display = 'none'; iframeEl.classList.remove('active');
+      errorEl.style.display = 'none';
+
+      const type = getVideoType(project.videoSrc);
+
+      if (type === 'local') {
+        videoEl.src          = project.videoSrc;
+        videoEl.muted        = true;
+        videoEl.loop         = true;
+        videoEl.playsInline  = true;
+        videoEl.preload      = 'none';
         videoEl.style.display = 'block';
-        errorEl.style.display = 'none';
-        videoEl.onerror = () => {
-          videoEl.style.display = 'none';
+        videoEl.play().catch(() => { videoEl.style.display = 'none'; errorEl.style.display = 'block'; });
+        videoEl.onerror = () => { videoEl.style.display = 'none'; errorEl.style.display = 'block'; };
+
+      } else if (type === 'youtube' || type === 'vimeo') {
+        const embedUrl = buildEmbedUrl(project.videoSrc, type);
+        if (embedUrl) {
+          iframeEl.src           = embedUrl;
+          iframeEl.style.display = 'block';
+          iframeEl.classList.add('active');
+        } else {
           errorEl.style.display = 'block';
-        };
+        }
+
       } else {
-        videoEl.src = '';
-        videoEl.style.display = 'none';
         errorEl.style.display = 'block';
       }
 
@@ -1488,184 +1255,133 @@
 
     /* ============================
        MODAL: CLOSE ALL
-       Fades out and hides whichever modal is open. Stops video playback.
        ============================ */
     function closeModal() {
       const projectModal = document.getElementById('project-modal');
       const videoModal   = document.getElementById('video-modal');
       const videoEl      = document.getElementById('pov-video');
+      const iframeEl     = document.getElementById('pov-iframe');
       const closeBtn     = document.getElementById('modal-close-btn');
 
-      /* Fade project modal before hiding */
       projectModal.classList.remove('visible');
-
       setTimeout(() => {
         projectModal.classList.remove('open');
         videoModal.classList.remove('open');
         closeBtn.style.display = 'none';
-        videoEl.pause();
-        videoEl.src = '';
+        videoEl.pause(); videoEl.src = '';
+        iframeEl.src = '';
         document.body.style.overflow = '';
         currentProject = null;
       }, 300);
     }
 
     /* ============================
-       SHARE: COPY PROJECT LINK
-       Copies a URL with a project anchor hash to the clipboard.
-       Falls back to window.prompt for browsers without Clipboard API.
-       @param {string} projectId
+       SHARE
        ============================ */
-    function shareProject(projectId) {
-      const url = window.location.href.split('#')[0] + '#' + projectId;
+    function shareProject(id) {
+      const url = location.href.split('#')[0] + '#' + id;
       const btn = document.getElementById('modal-share-btn');
-
       const reset = () => {
-        btn.innerHTML =
-          '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">' +
-            '<path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>' +
-            '<polyline points="16 6 12 2 8 6"/>' +
-            '<line x1="12" y1="2" x2="12" y2="15"/>' +
-          '</svg> Share Project';
+        btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg> Share Project';
         btn.classList.remove('copied');
       };
-
       if (navigator.clipboard) {
-        navigator.clipboard.writeText(url).then(() => {
-          btn.textContent = 'Link Copied!';
-          btn.classList.add('copied');
-          setTimeout(reset, 2500);
-        }).catch(() => prompt('Copy this link:', url));
-      } else {
-        prompt('Copy this link:', url);
-      }
+        navigator.clipboard.writeText(url).then(() => { btn.textContent = 'Link Copied!'; btn.classList.add('copied'); setTimeout(reset, 2500); }).catch(() => prompt('Copy:', url));
+      } else { prompt('Copy:', url); }
     }
 
     /* ============================
        SEO: INJECT PROJECT SCHEMA
-       Adds an ImageGallery JSON-LD block to <head> for each loaded project.
-       @param {Object} project
        ============================ */
-    function injectProjectSchema(project) {
-      const schema = {
-        '@context': 'https://schema.org',
-        '@type':    'ImageGallery',
-        'name':     project.title,
-        'description': project.description,
-        'locationCreated': {
-          '@type': 'Place',
-          'name':  (project.neighborhood || project.location) + ', CA'
-        },
-        'keywords': Array.isArray(project.tags) ? project.tags.join(', ') : '',
-        'author': {
-          '@type': 'Organization',
-          'name':  'ET Builders Inc.'
-        }
-      };
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.textContent = JSON.stringify(schema);
-      document.head.appendChild(script);
+    function injectProjectSchema(p) {
+      const s = document.createElement('script');
+      s.type = 'application/ld+json';
+      s.textContent = JSON.stringify({
+        '@context': 'https://schema.org', '@type': 'ImageGallery',
+        'name': p.title, 'description': p.description,
+        'locationCreated': { '@type': 'Place', 'name': (p.neighborhood || p.location) + ', CA' },
+        'keywords': Array.isArray(p.tags) ? p.tags.join(', ') : '',
+        'author': { '@type': 'Organization', 'name': 'ET Builders Inc.' }
+      });
+      document.head.appendChild(s);
     }
 
     /* ============================
-       SCROLL HANDLER
-       Adds/removes .scrolled on nav via requestAnimationFrame to batch reads/writes.
-       Uses passive listener so it never blocks the main thread.
+       INTERSECTION OBSERVER: CARD ANIMATIONS
        ============================ */
+    let cardObserver = null;
+
+    function initCardObserver() {
+      if (cardObserver) cardObserver.disconnect();
+      cardObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const card  = e.target;
+          const delay = parseInt(card.dataset.animIndex || 0, 10) * 60;
+          setTimeout(() => card.classList.add('visible'), delay);
+          cardObserver.unobserve(card);
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -24px 0px' });
+    }
+
+    /* ============================
+       INTERSECTION OBSERVER: LOAD MORE SENTINEL
+       Auto-triggers the next batch when the user scrolls near the bottom.
+       ============================ */
+    function initLoadSentinel() {
+      const sentinel = document.getElementById('load-sentinel');
+      const sentinelObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting && state.view === 'category' && !state.loading) {
+            const remaining = state.categoryIds.length - state.loadedCount;
+            if (remaining > 0) loadNextBatch();
+          }
+        });
+      }, { rootMargin: '200px' });
+      sentinelObs.observe(sentinel);
+    }
+
+    /* ============================
+       SCROLL HANDLER (rAF)
+       ============================ */
+    let scrollTick = false;
     function setupScrollHandler() {
       const nav = document.getElementById('site-nav');
       window.addEventListener('scroll', () => {
-        if (!scrollTicking) {
+        if (!scrollTick) {
           requestAnimationFrame(() => {
             nav.classList.toggle('scrolled', window.scrollY > 8);
-            scrollTicking = false;
+            scrollTick = false;
           });
-          scrollTicking = true;
+          scrollTick = true;
         }
       }, { passive: true });
     }
 
     /* ============================
-       INTERSECTION OBSERVER: CARD ANIMATIONS
-       Lazy-triggers the opacity + translateY entrance animation on each card
-       as it enters the viewport. Disconnects the old observer before creating
-       a new one to prevent leaks across filter rebuilds.
-       ============================ */
-    function setupCardAnimations() {
-      if (cardObserver) cardObserver.disconnect();
-
-      cardObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const card  = entry.target;
-            const delay = parseInt(card.dataset.animIndex || 0, 10) * 70;
-            setTimeout(() => card.classList.add('visible'), delay);
-            cardObserver.unobserve(card);
-          }
-        });
-      }, { threshold: 0.05, rootMargin: '0px 0px -32px 0px' });
-
-      document.querySelectorAll('.project-card').forEach((card, i) => {
-        card.dataset.animIndex = i;
-        cardObserver.observe(card);
-      });
-    }
-
-    /* ============================
        EVENT LISTENERS
-       Wires up filter bar, modal close paths (button, click-outside, ESC),
-       keyboard image navigation, and the share button.
        ============================ */
     function setupEventListeners() {
-      /* Filter bar */
-      const filterBtns = document.querySelectorAll('.filter-btn');
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          filterBtns.forEach(b => b.setAttribute('aria-selected', 'false'));
-          btn.setAttribute('aria-selected', 'true');
-          applyFilter(btn.dataset.filter);
-        });
-      });
-
-      /* Shared close button */
+      document.getElementById('back-btn').addEventListener('click', exitToShowroom);
       document.getElementById('modal-close-btn').addEventListener('click', closeModal);
+      document.getElementById('load-more-btn').addEventListener('click', loadNextBatch);
+      document.getElementById('modal-share-btn').addEventListener('click', () => { if (currentProject) shareProject(currentProject.id); });
 
-      /* Click outside project modal content closes it */
-      document.getElementById('project-modal').addEventListener('click', e => {
-        if (e.target === document.getElementById('project-modal')) closeModal();
-      });
-      document.getElementById('modal-content-inner').addEventListener('click', e => {
-        e.stopPropagation();
-      });
+      // Click outside modal content closes it
+      document.getElementById('project-modal').addEventListener('click', e => { if (e.target === document.getElementById('project-modal')) closeModal(); });
+      document.getElementById('modal-content-inner').addEventListener('click', e => e.stopPropagation());
 
-      /* Click anywhere on video modal closes it */
+      // Click anywhere on video modal closes
       document.getElementById('video-modal').addEventListener('click', closeModal);
 
-      /* Share button */
-      document.getElementById('modal-share-btn').addEventListener('click', () => {
-        if (currentProject) shareProject(currentProject.id);
-      });
-
-      /* Keyboard: ESC closes, arrows navigate gallery */
+      // Keyboard: ESC + arrow navigation
       document.addEventListener('keydown', e => {
-        const pmOpen = document.getElementById('project-modal').classList.contains('open');
-        const vmOpen = document.getElementById('video-modal').classList.contains('open');
-
-        if (e.key === 'Escape' && (pmOpen || vmOpen)) {
-          closeModal();
-          return;
-        }
-
-        if (pmOpen && currentProject) {
-          if (e.key === 'ArrowRight') {
-            e.preventDefault();
-            navigateToImage(currentImageIndex + 1);
-          }
-          if (e.key === 'ArrowLeft') {
-            e.preventDefault();
-            navigateToImage(currentImageIndex - 1);
-          }
+        const pm = document.getElementById('project-modal').classList.contains('open');
+        const vm = document.getElementById('video-modal').classList.contains('open');
+        if (e.key === 'Escape' && (pm || vm)) { closeModal(); return; }
+        if (pm && currentProject) {
+          if (e.key === 'ArrowRight') { e.preventDefault(); navigateToImage(currentImageIndex + 1); }
+          if (e.key === 'ArrowLeft')  { e.preventDefault(); navigateToImage(currentImageIndex - 1); }
         }
       });
     }
@@ -1676,7 +1392,17 @@
     document.addEventListener('DOMContentLoaded', async () => {
       setupScrollHandler();
       setupEventListeners();
-      await loadManifest();
+      initCardObserver();
+      initLoadSentinel();
+
+      // Pre-load manifest so showroom boxes show accurate project counts
+      try {
+        await loadManifest();
+      } catch (e) {
+        console.error('[ET Builders] Manifest load failed:', e);
+      }
+
+      renderShowroom();
     });
   </script>
 </body>
