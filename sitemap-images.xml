@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Google Image Sitemap — ET Builders Inc.
+  https://developers.google.com/search/docs/crawling-indexing/sitemaps/image-sitemaps
+
+  UPDATE THIS FILE every time a new project or photo is added.
+  Submit to Google Search Console after each update:
+  https://search.google.com/search-console
+
+  Naming convention for new images before upload:
+  [neighborhood]-[project-type]-[key-feature]-[city].webp
+  Examples:
+    beverly-hills-kitchen-remodel-marble-island-los-angeles.webp
+    bel-air-pool-infinity-edge-canyon-views-los-angeles.webp
+    malibu-outdoor-kitchen-pergola-fire-pit-los-angeles.webp
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- ============================================================
+       PROJECT: Beverly Hills Estate Kitchen (2024)
+       ============================================================ -->
+  <url>
+    <loc>https://www.etbuildersinc.com/projects#beverly-hills-kitchen-2024</loc>
+
+    <image:image>
+      <image:loc>https://www.etbuildersinc.com/public/assets/projects/beverly-hills-kitchen-2024/cover.webp</image:loc>
+      <image:title>Beverly Hills Luxury Kitchen Remodel — Custom Walnut Cabinetry &amp; Calacatta Marble</image:title>
+      <image:caption>Complete luxury kitchen remodel in Beverly Hills featuring floor-to-ceiling custom walnut cabinetry, Calacatta marble countertops, and open-concept design by ET Builders. California Contractor License #899053.</image:caption>
+      <image:geo_location>Beverly Hills, CA</image:geo_location>
+    </image:image>
+
+  </url>
+
+  <!-- ============================================================
+       PROJECT: Bel-Air Infinity Edge Pool (2024)
+       ============================================================ -->
+  <url>
+    <loc>https://www.etbuildersinc.com/projects#bel-air-pool-2024</loc>
+
+    <image:image>
+      <image:loc>https://www.etbuildersinc.com/public/assets/projects/bel-air-pool-2024/cover.webp</image:loc>
+      <image:title>Bel-Air Custom Infinity Edge Pool Construction — Resort-Style Outdoor Living</image:title>
+      <image:caption>Custom pool construction in Bel-Air featuring an infinity edge, integrated spa, panoramic canyon views, and custom limestone decking. Designed and built by ET Builders, Los Angeles.</image:caption>
+      <image:geo_location>Bel-Air, Los Angeles, CA</image:geo_location>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.etbuildersinc.com/public/assets/projects/bel-air-pool-2024/details/01.webp</image:loc>
+      <image:title>Bel-Air Infinity Pool — Spa &amp; Outdoor Entertainment Area Detail</image:title>
+      <image:caption>Detail view of the integrated spa and outdoor entertaining area in this Bel-Air custom pool project by ET Builders.</image:caption>
+      <image:geo_location>Bel-Air, Los Angeles, CA</image:geo_location>
+    </image:image>
+
+  </url>
+
+  <!-- ============================================================
+       PROJECT: Santa Monica Full Home Transformation (2023)
+       ============================================================ -->
+  <url>
+    <loc>https://www.etbuildersinc.com/projects#santa-monica-full-remodel-2023</loc>
+
+    <image:image>
+      <image:loc>https://www.etbuildersinc.com/public/assets/projects/santa-monica-full-remodel-2023/cover.webp</image:loc>
+      <image:title>Santa Monica Full Home Renovation — 6,500 sq ft Los Angeles Home Transformation</image:title>
+      <image:caption>Complete full home transformation in Santa Monica converting a 1970s residence into a modern coastal masterpiece. New structural walls, custom millwork, primary suite addition, and chef's kitchen by ET Builders.</image:caption>
+      <image:geo_location>Santa Monica, CA</image:geo_location>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.etbuildersinc.com/public/assets/projects/santa-monica-full-remodel-2023/details/01.webp</image:loc>
+      <image:title>Santa Monica Home Remodel — Custom Kitchen &amp; Millwork Interior Detail</image:title>
+      <image:caption>Interior detail of the custom chef's kitchen and millwork in this Santa Monica full home renovation by ET Builders, Los Angeles.</image:caption>
+      <image:geo_location>Santa Monica, CA</image:geo_location>
+    </image:image>
+
+  </url>
+
+  <!-- ============================================================
+       PROJECT: Malibu Oceanfront Outdoor Living (2024)
+       ============================================================ -->
+  <url>
+    <loc>https://www.etbuildersinc.com/projects#malibu-outdoor-2024</loc>
+
+    <image:image>
+      <image:loc>https://www.etbuildersinc.com/public/assets/projects/malibu-outdoor-2024/cover.webp</image:loc>
+      <image:title>Malibu Outdoor Kitchen &amp; Pergola Design — Oceanfront Living Space</image:title>
+      <image:caption>Oceanfront outdoor living space in Malibu with custom pergola, fully equipped outdoor kitchen, fire pit lounge, and terraced pool integration. Designed and built by ET Builders, Los Angeles.</image:caption>
+      <image:geo_location>Malibu, CA</image:geo_location>
+    </image:image>
+
+  </url>
+
+  <!-- ============================================================
+       PROJECT: Westwood Contemporary Kitchen (2023)
+       ============================================================ -->
+  <url>
+    <loc>https://www.etbuildersinc.com/projects#westwood-kitchen-2023</loc>
+
+    <image:image>
+      <image:loc>https://www.etbuildersinc.com/public/assets/projects/westwood-kitchen-2023/cover.webp</image:loc>
+      <image:title>Westwood Luxury Kitchen Remodel — Nero Marquina Marble Waterfall Island</image:title>
+      <image:caption>Luxury kitchen remodel in Westwood featuring a dramatic bookmatched Nero Marquina marble waterfall island, integrated appliances, and floor-to-ceiling custom cabinetry by ET Builders.</image:caption>
+      <image:geo_location>Westwood, Los Angeles, CA</image:geo_location>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.etbuildersinc.com/public/assets/projects/westwood-kitchen-2023/details/01.webp</image:loc>
+      <image:title>Westwood Kitchen Remodel — Custom Cabinetry &amp; Integrated Appliance Detail</image:title>
+      <image:caption>Detail view of custom floor-to-ceiling cabinetry and integrated appliances in this Westwood luxury kitchen renovation by ET Builders, Beverly Hills contractor.</image:caption>
+      <image:geo_location>Westwood, Los Angeles, CA</image:geo_location>
+    </image:image>
+
+  </url>
+
+</urlset>

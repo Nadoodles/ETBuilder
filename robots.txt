@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.etbuildersinc.com/sitemap.xml
+Sitemap: https://www.etbuildersinc.com/sitemap-images.xml

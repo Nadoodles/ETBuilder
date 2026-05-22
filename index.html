@@ -158,13 +158,39 @@
       line-height: 1.75;
       margin-bottom: 24px;
     }
-    .hero-descriptor {
-      font-size: 13px;
-      color: var(--color-muted);
-      max-width: 600px;
-      line-height: 1.8;
-      padding-top: 24px;
+    /* Architectural Digest badge */
+    .ad-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 28px;
+      padding-top: 20px;
       border-top: 1px solid var(--color-border);
+    }
+    .ad-badge-eyebrow {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+    }
+    .ad-badge-divider {
+      width: 1px; height: 14px;
+      background: var(--color-border);
+      flex-shrink: 0;
+    }
+    .ad-badge-name {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text);
+    }
+    /* Keeps SEO keyword text in DOM without showing it */
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
     }
 
     /* ===========================
@@ -275,49 +301,77 @@
       padding-top: 0;
     }
 
-    #category-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 24px var(--pad);
-      border-bottom: 1px solid var(--color-border);
-      max-width: var(--max-w);
-      margin: 0 auto;
+    /* ===========================
+       CATEGORY PILL NAVIGATION
+       =========================== */
+    #category-nav {
       position: sticky;
       top: var(--nav-height);
-      background: var(--color-bg);
       z-index: 10;
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      padding: 0 var(--pad);
+      gap: 20px;
     }
 
-    #back-btn {
-      font-size: 13px;
-      font-weight: 400;
-      letter-spacing: 0.03em;
-      color: var(--color-muted);
-      transition: color var(--ease);
+    .category-pills {
       display: flex;
       align-items: center;
       gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 14px 0;
+      flex: 1;
     }
-    #back-btn:hover { color: var(--color-text); }
+    .category-pills::-webkit-scrollbar { display: none; }
 
-    #category-title {
-      font-size: 13px;
-      font-weight: 300;
-      letter-spacing: 0.1em;
+    .cat-pill {
+      flex-shrink: 0;
+      padding: 7px 16px;
+      border: 1px solid var(--color-border);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--color-text);
+      color: var(--color-muted);
+      background: transparent;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    .cat-pill:hover { color: var(--color-text); border-color: #999; }
+
+    /* Active category — filled black */
+    .cat-pill.active {
+      background: var(--color-accent);
+      color: var(--color-accent-text);
+      border-color: var(--color-accent);
     }
 
-    .category-header-cta {
+    /* "All Categories" pill — slightly different: dark border, full text color */
+    .cat-pill.all-pill {
+      color: var(--color-text);
+      border-color: #ccc;
+      margin-right: 6px;
+      padding-right: 20px;
+      /* right border acts as divider between back-action and category filters */
+      border-right-width: 1px;
+    }
+    .cat-pill.all-pill:hover { border-color: var(--color-text); }
+
+    .category-nav-cta {
+      flex-shrink: 0;
       font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--color-muted);
       transition: color var(--ease);
+      white-space: nowrap;
     }
-    .category-header-cta:hover { color: var(--color-text); }
+    .category-nav-cta:hover { color: var(--color-text); }
 
     /* ===========================
        MASONRY GRID
@@ -610,8 +664,8 @@
       .modal-right   { padding: 20px; }
       .modal-meta-grid { grid-template-columns: 1fr 1fr; }
       #page-footer   { flex-direction: column; gap: 12px; text-align: center; }
-      #category-header { flex-direction: row; padding: 16px var(--pad); }
-      .category-header-cta { display: none; }
+      #category-nav { padding: 0 var(--pad); }
+      .category-nav-cta { display: none; }
     }
   </style>
 </head>
@@ -621,7 +675,7 @@
   <nav id="site-nav" aria-label="Site navigation">
     <a href="https://www.etbuildersinc.com" class="nav-back" aria-label="Back to ET Builders homepage">← ET Builders</a>
     <span class="nav-title" aria-hidden="true" id="nav-title-text">Featured Projects</span>
-    <a href="https://www.etbuildersinc.com" class="nav-cta">Schedule Consultation</a>
+    <a href="https://www.etbuildersinc.com/contact" class="nav-cta">Schedule Consultation</a>
   </nav>
 
   <main>
@@ -637,10 +691,18 @@
           Award-winning kitchen remodels, custom pools, and full home renovations
           in Beverly Hills, Bel-Air, Santa Monica, and beyond.
         </p>
-        <p class="hero-descriptor">
+        <!-- AD badge — strongest credibility signal, surfaced prominently -->
+        <div class="ad-badge" aria-label="As seen in Architectural Digest">
+          <span class="ad-badge-eyebrow">As seen in</span>
+          <span class="ad-badge-divider" aria-hidden="true"></span>
+          <span class="ad-badge-name">Architectural Digest</span>
+        </div>
+
+        <!-- SEO keyword text — in DOM for Google, visually hidden for users -->
+        <p class="visually-hidden">
           ET Builders Inc. is a Beverly Hills contractor specializing in luxury kitchen remodels,
           custom pool construction, and full home transformations throughout greater Los Angeles.
-          Featured in Architectural Digest. California Contractor License&nbsp;#899053.
+          Featured in Architectural Digest. California Contractor License #899053.
         </p>
       </div>
 
@@ -655,14 +717,12 @@
          ============================================================ -->
     <section id="category-view" class="view" aria-label="Category Projects" aria-live="polite">
 
-      <div id="category-header">
-        <button id="back-btn" aria-label="Return to all project categories">
-          ← All Categories
-        </button>
-        <h2 id="category-title"></h2>
-        <a href="https://www.etbuildersinc.com" class="category-header-cta">
-          Start a Project →
-        </a>
+      <!-- Pill navigation — replaces arrow back-link pattern -->
+      <div id="category-nav" role="navigation" aria-label="Project categories">
+        <div id="category-pills" class="category-pills" role="tablist" aria-label="Filter by category">
+          <!-- Pills injected by renderCategoryPills() -->
+        </div>
+        <a href="https://www.etbuildersinc.com/contact" class="category-nav-cta">Start a Project →</a>
       </div>
 
       <div id="gallery-section">
@@ -682,7 +742,7 @@
     <!-- FOOTER (visible in both views) -->
     <footer id="page-footer" aria-label="Page footer">
       <p class="footer-license">ET Builders Inc. &nbsp;·&nbsp; California Contractor License #899053 &nbsp;·&nbsp; Los Angeles, CA</p>
-      <a href="https://www.etbuildersinc.com" class="footer-cta">Start Your Project →</a>
+      <a href="https://www.etbuildersinc.com/contact" class="footer-cta">Start a Project →</a>
     </footer>
 
   </main>
@@ -706,7 +766,7 @@
         </div>
         <p id="modal-description" class="modal-description"></p>
         <span id="modal-category-pill" class="modal-category-pill"></span>
-        <a href="https://www.etbuildersinc.com" class="modal-cta-btn">Schedule a Consultation</a>
+        <a href="https://www.etbuildersinc.com/contact" class="modal-cta-btn">Schedule a Consultation</a>
         <button id="modal-share-btn" class="modal-share-btn" aria-label="Copy project link">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/>
@@ -721,7 +781,6 @@
   <div id="video-modal" role="dialog" aria-modal="true" aria-label="POV video" tabindex="-1">
     <video id="pov-video" muted loop playsinline preload="none" aria-label="POV construction process video"></video>
     <iframe id="pov-iframe" allowfullscreen allow="autoplay; fullscreen" title="POV process video"></iframe>
-    <p id="video-error" style="display:none;" aria-live="polite">Video coming soon</p>
   </div>
 
   <button id="modal-close-btn" class="modal-close-btn" aria-label="Close">&#xd7;</button>
@@ -731,7 +790,7 @@
        CONSTANTS
        ============================ */
     const PAGE_SIZE    = 12;
-    const CONTACT_URL  = 'https://www.etbuildersinc.com';
+    const CONTACT_URL  = 'https://www.etbuildersinc.com/contact';
     const MANIFEST_URL = 'public/assets/projects/projects-manifest.json';
 
     /* ============================
@@ -975,16 +1034,58 @@
        @param {string} catLabel
        @param {string[]} ids  - All project IDs in this category
        ============================ */
+    /* ============================
+       DOM: RENDER CATEGORY PILLS
+       Builds the pill navigation bar for the active category view.
+       "All Categories" pill always appears first and returns to the showroom.
+       Empty categories are hidden so users don't click into dead ends.
+       @param {string} activeCatId
+       ============================ */
+    function renderCategoryPills(activeCatId) {
+      const container = document.getElementById('category-pills');
+      container.innerHTML = '';
+
+      // "All Categories" pill — acts as back to showroom, visually a chip not a nav link
+      const allPill = document.createElement('button');
+      allPill.className = 'cat-pill all-pill';
+      allPill.setAttribute('role', 'tab');
+      allPill.setAttribute('aria-selected', 'false');
+      allPill.setAttribute('aria-label', 'Return to all project categories');
+      allPill.textContent = 'All Categories';
+      allPill.addEventListener('click', exitToShowroom);
+      container.appendChild(allPill);
+
+      // One pill per category — skip empty ones
+      const manifest = state.manifest || {};
+      SHOWROOM.forEach(cat => {
+        const ids = manifest[cat.id] || [];
+        if (!ids.length) return;
+
+        const pill = document.createElement('button');
+        const isActive = cat.id === activeCatId;
+        pill.className = 'cat-pill' + (isActive ? ' active' : '');
+        pill.setAttribute('role', 'tab');
+        pill.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        pill.setAttribute('aria-label', cat.label);
+        pill.dataset.catId = cat.id;
+        pill.textContent = cat.label;
+        pill.addEventListener('click', () => {
+          if (cat.id !== state.categoryId) enterCategory(cat.id, cat.label, ids);
+        });
+        container.appendChild(pill);
+      });
+    }
+
     async function enterCategory(catId, catLabel, ids) {
       state.categoryId  = catId;
       state.categoryIds = ids;
       state.loadedCount = 0;
 
-      document.getElementById('category-title').textContent = catLabel;
       document.getElementById('masonry-grid').innerHTML = '';
       document.getElementById('load-more-count').textContent = '';
       document.getElementById('load-more-btn').classList.add('hidden');
 
+      renderCategoryPills(catId);
       switchView('category-view');
 
       await loadNextBatch();
@@ -1212,39 +1313,38 @@
     function openVideoModal(project) {
       const videoEl    = document.getElementById('pov-video');
       const iframeEl   = document.getElementById('pov-iframe');
-      const errorEl    = document.getElementById('video-error');
       const closeBtn   = document.getElementById('modal-close-btn');
       const videoModal = document.getElementById('video-modal');
 
       // Reset state
       videoEl.src  = ''; videoEl.style.display  = 'none'; videoEl.classList.remove('active');
       iframeEl.src = ''; iframeEl.style.display = 'none'; iframeEl.classList.remove('active');
-      errorEl.style.display = 'none';
 
       const type = getVideoType(project.videoSrc);
 
       if (type === 'local') {
-        videoEl.src          = project.videoSrc;
-        videoEl.muted        = true;
-        videoEl.loop         = true;
-        videoEl.playsInline  = true;
-        videoEl.preload      = 'none';
+        videoEl.src         = project.videoSrc;
+        videoEl.muted       = true;
+        videoEl.loop        = true;
+        videoEl.playsInline = true;
+        videoEl.preload     = 'none';
         videoEl.style.display = 'block';
-        videoEl.play().catch(() => { videoEl.style.display = 'none'; errorEl.style.display = 'block'; });
-        videoEl.onerror = () => { videoEl.style.display = 'none'; errorEl.style.display = 'block'; };
+        // Fail silently — close the modal rather than show a "coming soon" placeholder
+        videoEl.play().catch(() => closeModal());
+        videoEl.onerror = () => closeModal();
 
       } else if (type === 'youtube' || type === 'vimeo') {
         const embedUrl = buildEmbedUrl(project.videoSrc, type);
         if (embedUrl) {
-          iframeEl.src           = embedUrl;
+          iframeEl.src = embedUrl;
           iframeEl.style.display = 'block';
           iframeEl.classList.add('active');
         } else {
-          errorEl.style.display = 'block';
+          closeModal(); // invalid URL — close rather than show empty modal
         }
 
       } else {
-        errorEl.style.display = 'block';
+        closeModal();
       }
 
       videoModal.classList.add('open');
@@ -1362,7 +1462,6 @@
        EVENT LISTENERS
        ============================ */
     function setupEventListeners() {
-      document.getElementById('back-btn').addEventListener('click', exitToShowroom);
       document.getElementById('modal-close-btn').addEventListener('click', closeModal);
       document.getElementById('load-more-btn').addEventListener('click', loadNextBatch);
       document.getElementById('modal-share-btn').addEventListener('click', () => { if (currentProject) shareProject(currentProject.id); });
