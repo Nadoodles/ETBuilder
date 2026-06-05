@@ -206,11 +206,11 @@
       background: var(--dark-bg) url('public/assets/projects/beverly-hills-kitchen-2024/cover.webp') center/cover no-repeat;
     }
 
-    /* YouTube iframe scaled to always fill the viewport (16:9 math) */
+    /* Local video scaled to always fill the viewport (16:9 math) */
     #video-wrap {
       position: absolute; inset: 0; overflow: hidden; pointer-events: none;
     }
-    #hero-iframe {
+    #hero-video {
       position: absolute;
       top: 50%; left: 50%;
       width: 100vw;
@@ -218,7 +218,7 @@
       min-height: 100vh;
       min-width: 177.78vh; /* 16/9 × 100vh */
       transform: translate(-50%, -50%);
-      border: 0;
+      object-fit: cover;
     }
 
     /* Gradient overlay — heavier at bottom where text lives */
@@ -584,14 +584,16 @@
          ===================================================== -->
     <section id="hero" aria-label="ET Builders — Build it Better, Build it Right">
 
-      <!-- YouTube cinematic construction reel — background video -->
+      <!-- Local hero background video -->
       <div id="video-wrap" aria-hidden="true">
-        <iframe
-          id="hero-iframe"
-          data-src="https://www.youtube.com/embed/4BzjUq921Y4?autoplay=1&mute=1&loop=1&playlist=4BzjUq921Y4&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1"
-          allow="autoplay; fullscreen"
-          title="ET Builders construction showcase"
-        ></iframe>
+        <video
+          id="hero-video"
+          autoplay muted loop playsinline
+          preload="auto"
+          poster="public/assets/projects/beverly-hills-kitchen-2024/cover.webp"
+        >
+          <source src="public/assets/temp.mp4" type="video/mp4" />
+        </video>
       </div>
 
       <div id="hero-overlay" aria-hidden="true"></div>
@@ -938,23 +940,9 @@
     });
 
     /* ============================
-       HERO VIDEO: Lazy-load the YouTube iframe
-       The iframe src is stored in data-src so it doesn't load on page parse.
-       IntersectionObserver swaps it in when the hero enters the viewport —
-       saves bandwidth for users who navigate directly to #contact or #our-work
-       via a link.
+       HERO VIDEO: muted autoplay works natively on all browsers
+       for local <video> elements — no JS tricks needed.
        ============================ */
-    const iframe = document.getElementById('hero-iframe');
-    const heroSection = document.getElementById('hero');
-
-    const videoObserver = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting && !iframe.src) {
-        iframe.src = iframe.dataset.src;
-        videoObserver.disconnect();
-      }
-    }, { threshold: 0.01 });
-
-    videoObserver.observe(heroSection);
   </script>
 
 </body>
